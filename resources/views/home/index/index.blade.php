@@ -2,129 +2,98 @@
 
 @section('title', '首页')
 
-@section('class', 'index clearfix')
-
 @section('body')
-    <div class="index-bigpic swiper-container clearfix">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <a href="#"><img src="{{ asset('/style/home/images/bigpic1.jpg') }}"/></a>
-            </div>
-            <div class="swiper-slide">
-                <a href="#"><img src="{{ asset('/style/home/images/bigpic2.jpg') }}"/></a>
-            </div>
-            <div class="swiper-slide">
-                <a href="#"><img src="{{ asset('/style/home/images/bigpic3.jpg') }}"/></a>
-            </div>
-            <div class="swiper-slide">
-                <a href="#"><img src="{{ asset('/style/home/images/bigpic4.jpg') }}"/></a>
-            </div>
+    <div class="index clearfix">
+        <div class="search">
+            <a href="{{ route('home.category_list') }}" class="fenlei"></a>
+            <a href="{{ route('home.search') }}" class="search-input"><input type="text" placeholder="搜索礼品"/></a>
+            <a href="{{ route('home.car') }}" class="shopping-cartt"><em>{{ $car_count }}</em></a>
         </div>
-        <!-- 分页器 -->
-        <div class="index-bigpic swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
-    <div class="month-has clearfix">
-        <h1>本月主推</h1>
-        <div class="month-con">
-            @foreach($recommend_commodity as $recommend)
-                <a href="{{ route('home.commodity_view', ['id' => $recommend['id']]) }}">
-                    <img src="{{ $recommend['image_0'] }}"/>
-                    <span>{{ $recommend['name'] }}</span>
-                    <em>￥{{ $recommend['price'] }}</em>
-                </a>
-            @endforeach
-        </div>
-    </div>
-    <div class="new clearfix">
-        <h1>新品上市</h1>
-        <ul class="new-con clearfix">
-            @foreach($new_commodity as $item)
-                <li>
-                    <strong>
-                        <img src="{{ $item['image_0'] }}"/>
-                        <b><a href="{{ route('home.commodity_view', ['id' => $item['id']]) }}">查看详情</a></b>
-                    </strong>
-                    <span>{{ $item['name'] }}</span>
-                    <em>{{ $item->category->name }}</em>
-                </li>
-            @endforeach
-        </ul>
-    </div>
-    <div class="discount clearfix">
-        <h1>折扣专区</h1>
-        <div class="index-discount swiper-container">
+        <div class="swiper-container index-bigpic clearfix">
             <div class="swiper-wrapper">
-                @foreach($discount_commodity as $value)
-                    <div class="swiper-slide">
-                        <a href="{{ route('home.commodity_view', ['id' => $value['id']]) }}">
-                            <img src="{{ $value['image_0'] }}"/>
-                        </a>
-                    </div>
-                @endforeach
+                <div class="swiper-slide">
+                    <a href="classification-list.html"><img src="../picture/bigpic1.jpg"/></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="classification-list.html"><img src="../picture/bigpic2.jpg"/></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="goods-details.html"><img src="../picture/bigpic3.jpg"/></a>
+                </div>
             </div>
+            <!-- 分页器 -->
             <div class="swiper-pagination"></div>
         </div>
+        <div class="nav-top clearfix">
+            <a href="classification-list.html">精选产品</a>
+            <a href="classification-list.html">超值专区</a>
+            <a href="classification-list.html">大牌专区</a>
+            <a href="classification-list.html">折扣专区</a>
+        </div>
+        <!-- <div class="news clearfix">
+            <strong></strong>
+            <div class="swiper-containerNews clearfix">
+                <div class="swiper-wrapper news-list">
+                    <div class="swiper-slide">
+                        <a href="news.html">1今年全球出现了20项黑科技今年全球出现了20项黑科技</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="news.html">2今年全球出现了20项黑科技今年全球出现了20项黑科技</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="news.html">3今年全球出现了20项黑科技今年全球出现了20项黑科技</a>
+                    </div>
+                </div>
+            </div>
+            <a href="news.html">更多</a>
+        </div> -->
+        <div class="goods">
+            <b class="hot-exchange clearfix" style="width: 100%;padding-left: 0;">
+                今日推荐
+            </b>
+            <ul class="goods-con clearfix">
+                @foreach($recommend_today as $commodity)
+                    <li>
+                        <a href="{{ route('home.commodity_view', ['id' => $commodity['id']]) }}">
+                            <h3>
+                                <img src="{{ $commodity['image_0'] }}" height="750" width="750"/>
+                            </h3>
+                            <h2>{{ $commodity['name'] }}</h2>
+                            <strong class="price clearfix">
+                                <h4>{{ $commodity['price'] }}</h4>
+                                <!-- <h5><em>100</em>.00</h5> -->
+                            </strong>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+        <!-- <a class="index-advertising clearfix">
+            <img src="../picture/1ae1ccc0-9078-47ea-8c40-3578bbfc11cf.jpg" alt="" />
+        </a> -->
+        <div class="copyright">
+            <h1>© {{ config('site.title') }} 版权所有</h1>
+            <h2>李艺芳提供技术支持</h2>
+        </div>
+        <div class="nav clearfix">
+            @include('home.layouts.sidebar')
+        </div>
     </div>
-@endsection
-@section('script')
-<script type="text/javascript">
-    // 大图滚动
-    var bigPic = $('.index-bigpic').swiper({
-        direction: 'horizontal',
-        loop: true,
-        autoplay: 3000,
-        autoplayDisableOnInteraction: false,
-        speed: 1000,
-        grabCursor : true,
-        // 分页器
-        pagination: '.index-bigpic .swiper-pagination',
-        prevButton:'.swiper-button-prev',
-        nextButton:'.swiper-button-next',
-    });
-    //折扣专区
-    var bigPic = $('.index-discount').swiper({
-        pagination: '.index-discount .swiper-pagination',
-        loop: true,
-        autoplay: 3000,
-        autoplayDisableOnInteraction: false,
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        coverflow: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows : true
-        }
-    });
-    //服饰配饰区
-    var swiper = $('.index-accessorize1').swiper({
-        pagination: '.index-accessorize1 .swiper-pagination',
-        loop: true,
-        autoplay: 1000,
-        autoplayDisableOnInteraction: false,
-        effect: 'flip',
-        grabCursor: true
-    });
-    var swiper = $('.index-accessorize2').swiper({
-        pagination: '.index-accessorize2 .swiper-pagination',
-        loop: true,
-        autoplay: 2000,
-        autoplayDisableOnInteraction: false,
-        effect: 'flip',
-        grabCursor: true
-    });
-    var swiper = $('.index-accessorize3').swiper({
-        pagination: '.index-accessorize3 .swiper-pagination',
-        loop: true,
-        autoplay: 3000,
-        autoplayDisableOnInteraction: false,
-        effect: 'flip',
-        grabCursor: true
-    });
-</script>
+    <em class="return-top">顶部</em>
+    <script type="text/javascript">
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: 3000,
+            autoplayDisableOnInteraction : false,
+            // 分页器
+            pagination: '.swiper-pagination',
+        });
+        var mySwiperNews = new Swiper ('.swiper-containerNews', {
+            direction: 'vertical',
+            loop: true,
+            autoplay: 3000,
+            autoplayDisableOnInteraction : false,
+        });
+    </script>
 @endsection

@@ -1,184 +1,126 @@
+@inject('car', 'App\Services\Home\CarService')
+
 @extends('home.layouts.app')
 
-@section('title', $commodity['name'])
-@section('class', 'goods-details')
+@section('title', '商品详情')
 
 @section('body')
-    <div class="content">
-        <div class="goods-show">
-            <div class="goods-show-con">
-                <div class="show-con-left">
-                    <div class="thumbnail">
-                        @for($i=1; $i<9; $i++)
-                            @if(!empty($commodity['image_'.$i]))
-                                <span @if ($i == 1) class="thumbnail-active"@endif>
-                                    <img src="{{ $commodity['image_'.$i] }}"/>
-                                </span>
-                            @endif
-                        @endfor
+<div class="goods-details">
+    <div class="swiper-container bigpic clearfix">
+        <div class="swiper-wrapper">
+            @for($i=0; $i<9; $i++)
+                @if (!empty($commodity['image_'.$i]))
+                    <div class="swiper-slide">
+                        <img src="{{ $commodity['image_'.$i] }}"/>
                     </div>
-                    <div class="show-pic">
-                        <div class="show-pic-con">
-                            <img src="{{ $commodity['image_0'] }}"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="show-con-right">
-                    <div class="goods-title">
-                        <h1>{{ $commodity->category->name }}</h1>
-                        <h2>{{ $commodity['name'] }}</h2>
-                        <span class="goods-price">￥{{ $commodity['price'] }}</span>
-                    </div>
-                    <form method="post" action="{{ route('home.car_add', ['commodity_id' => $commodity['id'] ]) }}">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="price" value="{{ $commodity['price'] }}">
-                        <div class="goods-color">
-                            <h3>颜色选择</h3>
-                            @foreach($attributes as $attribute)
-                                @if ($attribute['alias'] == 'color')
-                                    @foreach(explode(',', $attribute['value']) as $value)
-                                        <input name="color" type="radio" value="{{ $value }}"/>
-                                        {{ $value }}
-                                    @endforeach
-                                @endif
-                            @endforeach
-                        </div>
-                        <div class="goods-size">
-                            <div class="goods-size-title">尺码表</div>
-                            <div class="goods-size-choose clearfix">
-                                <select class="size-num" name="size" style="width: 100%">
-                                    <option value="" disabled selected>选择尺码</option>
-                                    @foreach($attributes as $attribute)
-                                        @if ($attribute['alias'] == 'size')
-                                            @foreach(explode(',', $attribute['value']) as $value)
-                                                <option value ="{{ $value }}">
-                                                    {{ $value }}
-                                                </option>
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-                                </select>
-                                <div class="prompting">请先选择尺码</div>
-                            </div>
-                        </div>
-                        <div class="goods-size">
-                            <div class="goods-size-title">购买数量</div>
-                            <div class="goods-size-choose clearfix">
-                                <select class="goods-num" name="num" style="float: left; width: 100%">
-                                    <option value ="1">1</option>
-                                    <option value ="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value ="4">4</option>
-                                    <option value ="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value ="7">7</option>
-                                    <option value ="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value ="10">10</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" style="border:none ;" class="join-shoppingCart">加入购物车</button>
-                    </form>
-                </div>
-            </div>
+                @endif
+            @endfor
         </div>
-        <div class="goods-introduce">
-            <div class="goods-introduce-con">
-                {!! $commodity['description'] !!}
-            </div>
-        </div>
-        <div class="guess-u-like clearfix">
-            <h1>猜你喜欢</h1>
-            <div class="u-like swiper-container">
-                <div class="swiper-wrapper">
-                    @foreach($rand_commodity as $rand)
-                        <div class="swiper-slide">
-                            <a href="{{ route('home.commodity_view', ['id' => $rand['id']]) }}">
-                                <img src="{{ $rand['image_0'] }}"/>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
+        <!-- 分页器 -->
+        <div class="swiper-pagination"></div>
     </div>
-    {{--<div class="shoppingCart-mask">--}}
-        {{--<div class="shoppingCart-mask-con">--}}
-            {{--<h1>成功加入购物袋 <span class="close"></span></h1>--}}
-            {{--<div class="mask-details clearfix">--}}
-                {{--<div class="mask-details-img">--}}
-                    {{--<img src="{{ $commodity['image_0'] }}"/>--}}
-                {{--</div>--}}
-                {{--<div class="mask-details-info">--}}
-                    {{--<h2>{{ $commodity->category->name }}</h2>--}}
-                    {{--<h3>{{ $commodity['name'] }}</h3>--}}
-                    {{--<p class="mask-price">￥{{ $commodity['price'] }}</p>--}}
-                    {{--<div class="goods-sku">--}}
-                        {{--<p>颜色：<span>深绿/石膏白/深绿</span></p>--}}
-                        {{--<p>尺码：<span>41</span></p>--}}
-                        {{--<p>数量：<span>10</span></p>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="mask-details-right">--}}
-                    {{--<p><span>5</span>件商品</p>--}}
-                    {{--<p>总计：<span>￥699</span></p>--}}
-                    {{--<a href="###" class="btn-check">查看购物袋</a>--}}
-                    {{--<a href="###" class="btn-clearing">立即结算</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-@endsection
-@section('script')
+    <div class="info">
+        <div class="title clearfix">
+            <span>{{ $commodity['name'] }}</span>
+        </div>
+        <div class="price clearfix">
+            <h1>{{ $commodity['price'] }}</h1>
+            <h3>邮费：<em>0</em> 元</h3>
+        </div>
+        <!-- <div class="goods-distribution clearfix">
+            <h2>快递：<em>0.00</em></h2>
+            <h3>月换购 <em>11509</em> 笔</h3>
+        </div> -->
+    </div>
+    <ul class="show-title clearfix">
+        <li class="on">图文详情</li>
+    </ul>
+
+    <ul class="show-details" style="padding: 1em">
+        {!! $commodity['description'] !!}
+    </ul>
+    <h1 class="join-successful">加入购物车成功</h1>
+    <h1 class="collection-successful">收藏成功</h1>
+    <h1 class="collection-failure">已取消收藏</h1>
+    <div class="nav-bottom">
+        <span class="join-collection join-collection1">收藏</span>
+        <a href="{{ route('home.car') }}">购物车<em>{{ $car->count() }}</em></a>
+        <span class="join-cart">加入购物车</span>
+        <a href="###" class="exchange-now">立即兑换</a>
+    </div>
+    <div>
+        <form id="car_add_gorm" action="{{ route('home.car_add', ['id' => $commodity['id']]) }}" method="post">
+            {{ csrf_field() }}
+            <div class="mask">
+                <h1 class="join-failure">请选择商品规格</h1>
+                <div class="mask-con">
+                    <div class="mask-title">
+                            <span class="pic">
+                                <img src="{{ $commodity['image_0'] }}"/>
+                            </span>
+                        <h4>{{ $commodity['name'] }}</h4>
+                        <strong class="price clearfix">
+                            <h1>{{ $commodity['price'] }}</h1>
+                        </strong>
+                        <div class="mask-close"></div>
+                    </div>
+                    <ul class="mask-content">
+                        @foreach($attributes as $attribute)
+                            <li>
+                                <p>{{ $attribute['name'] }}</p>
+                                <div class="type-choose clearfix">
+                                    @foreach(explode(',', $attribute['value']) as $value)
+                                        <input type="text" name="attribute[{{ $attribute['name'] }}]" value="{{ $value }}" readonly/>
+                                    @endforeach
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <div class="mask-num">
+                        <p>数量</p>
+                        <div class="form">
+                            <div>
+                                <span class="jian"></span>
+                                <input type="text" class="num" name="num" value="1"/>
+                                <span class="jia"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav3">
+                    <a href="#" class="confirm" onclick="car_add_gorm()">确定</a>
+                </div>
+            </div>
+        </form>
+</div>
+<div class="quick-nav">
+    <em>快速导航</em>
+</div>
+<div class="quick-nav-mask">
+    <div class="quick-con">
+        @include('home.layouts.quick')
+    </div>
+</div>
+<em class="return-top">顶部</em>
 <script type="text/javascript">
-    //缩略图
-    $(".thumbnail span").click(function() {
-        $(".thumbnail span").removeClass('thumbnail-active');
-        $(this).addClass('thumbnail-active');
-        var imgSrc = $(".thumbnail span").eq($(".thumbnail span").index(this)).children('img').attr('src');
-        $(".show-pic-con img").attr('src', imgSrc);
-    });
-
-    //颜色选择
-    $(".goods-details .goods-show .goods-show-con .show-con-right .goods-color ul li").click(function() {
-        $(".goods-details .goods-show .goods-show-con .show-con-right .goods-color ul li").removeClass('active');
-        $(this).addClass('active');
-    });
-
-    //猜你喜欢
-    var bigPic = $('.u-like').swiper({
-        pagination: '.u-like .swiper-pagination',
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
         loop: true,
         autoplay: 3000,
-        autoplayDisableOnInteraction: false,
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        coverflow: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows : true
-        }
+        autoplayDisableOnInteraction : false,
+        // 分页器
+        pagination: '.swiper-pagination',
     });
+    var len = $(".goods-details .mask .mask-con .mask-content li").length;
+    if(len == 0) {
+        $(".goods-details .mask .mask-con .mask-content").remove();
+        $(".goods-details .mask .mask-con").css({"height" : 101});
+        $(".quick-nav").css({"bottom" : 155});
+    }
 
-    //加入购物车
-//    $(".join-shoppingCart").click(function() {
-//        if($(".size-num").val() == null) {
-//            $(".prompting").show();
-//            $(".size-num").addClass('size-num-active');
-//        } else {
-//            $(".prompting").hide();
-//            $(".size-num").removeClass('size-num-active');
-//            $(".goods-details .shoppingCart-mask").show();
-//            $(".goods-details .shoppingCart-mask .shoppingCart-mask-con h1 .close").click(function() {
-//                $(".goods-details .shoppingCart-mask").hide();
-//            });
-//        }
-//    });
+    //提交
+    function car_add_gorm() {
+        $('#car_add_gorm').submit();
+    }
 </script>
 @endsection

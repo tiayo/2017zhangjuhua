@@ -3,34 +3,32 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Services\Home\CarService;
 use App\Services\Home\IndexService;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
     protected $index;
+    protected $car;
 
-    public function __construct(IndexService $index)
+    public function __construct(IndexService $index, CarService $car)
     {
         $this->index = $index;
+        $this->car = $car;
     }
 
     public function index()
     {
-        //新品上市
-        $new_commodity = $this->index->getByType(1, 6);
+        //今日推荐
+        $recommend_today = $this->index->getByType(5, 10);
 
-        //本月主推
-        $recommend_commodity = $this->index->getByType(2, 8);
-
-        //折扣专区
-        $discount_commodity = $this->index->getByType(3, 9);
-
+        //购物车数量
+        $car_count = $this->car->count();
 
         return view('home.index.index', [
-            'new_commodity' => $new_commodity,
-            'recommend_commodity' => $recommend_commodity,
-            'discount_commodity' => $discount_commodity
+            'recommend_today' => $recommend_today,
+            'car_count' => $car_count,
         ]);
     }
 
@@ -38,6 +36,14 @@ class IndexController extends Controller
     {
         $keyword = $request->get('keyword');
 
+        if (empty($keyword)) {
+            return view('home.index.search');
+        }
+
+        //记录到session
+        $request->session()->push('search_keyword.', $keyword);
+
+        //获取商品
         $commodities = $this->index->getSearch($keyword);
 
         return view('home.list.list', [

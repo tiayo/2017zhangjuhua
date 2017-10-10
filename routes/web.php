@@ -15,6 +15,7 @@ $this->group(['namespace' => 'Home'], function () {
     $this->get('/', 'IndexController@index')->name('home.index');
     $this->get('/search', 'IndexController@search')->name('home.search');
     $this->get('/commodity/{id}', 'DetailController@view')->name('home.commodity_view');
+    $this->get('/category', 'ListController@categoryList')->name('home.category_list');
     $this->get('/category/{id}', 'ListController@view')->name('home.category_view');
 
     //登录后操作

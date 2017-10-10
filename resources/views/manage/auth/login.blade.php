@@ -25,7 +25,7 @@
 
     <div class="form-signin" action="index.html">
         <div class="form-signin-heading text-center" style="color:#666;padding: 25px 15px 0">
-            <h3>商城系统</h3>
+            <h3>{{ config('site.title')  }}</h3>
         </div>
         <div class="login-wrap">
             <form method="post" action="{{ route('manage.login') }}">

@@ -4,7 +4,7 @@ return [
     'administrator' => env('SITE_ADMINISTRATE'),
     'upload_image_size' => 1024,
     'list_num' => env('SITE_LIST_NUM'),
-    'title' => '周进森の假鞋店', //网站标题
+    'title' => '宜家生活馆', //网站标题
     'order_status' => [ //订单状态
         0 => '等待支付',
         1 => '等待发货',
@@ -38,8 +38,10 @@ return [
     ],
     'commodity_type' => [
         0 => '普通商品',
-        1 => '新品上市',
-        2 => '本月主推',
-        3 => '折扣专区',
+        1 => '精选产品',
+        2 => '超值专区',
+        3 => '大牌专区',
+        4 => '折扣专区',
+        5 => '今日推荐',
     ],
 ];

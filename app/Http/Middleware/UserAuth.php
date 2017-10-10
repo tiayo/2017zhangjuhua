@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class ManageAuth
+class UserAuth
 {
     /**
      * Handle an incoming request.
@@ -18,11 +18,7 @@ class ManageAuth
     public function handle($request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('manage.login');
-        }
-
-        if (!can('admin')) {
-            return redirect()->route('home.person');
+            return redirect()->route('home.login');
         }
 
         return $next($request);
