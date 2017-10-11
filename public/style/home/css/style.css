@@ -2282,6 +2282,7 @@ body {
     height: 100%;
 }
 .add-address .express-area dl {
+    position: relative;
     float: left;
     width: 100%;
     height: 100%;
@@ -2305,14 +2306,26 @@ body {
     text-align: left;
     line-height: 30px;
 }
-.add-address .express-area dl dd input {
+.add-address .express-area dl input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 7%;
+    width: 62%;
+    height: 100%;
+    padding: 0 3%;
+    border: 0;
+    outline: none;
+    opacity: 0;
+}
+/*.add-address .express-area dl dd input {
     overflow: hidden;
     float: left;
     width: 100%;
     height: 100%;
     border: none;
     outline: none;
-}
+}*/
 /*选择地区弹层*/
 .add-address .express-area-box {
     position: fixed;
@@ -2368,6 +2381,7 @@ body {
     font-weight: bold;
     text-align: center;
     line-height: 40px;
+    border: 0;
 }
 .add-address .mask-false {
     display: none;
@@ -2389,7 +2403,7 @@ body {
 }
 
 /*我的红包页面*/
-.my-balance {
+/*.my-balance {
     overflow: scroll;
     position: fixed;
     top: 0;
@@ -2521,10 +2535,10 @@ body {
     height: 100%;
     background: url(../icon/icon_arrow_right.png) no-repeat 98% center;
     background-size: 5%;
-}
+}*/
 
 /*立即提现*/
-.change-withdrawal {
+/*.change-withdrawal {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -2673,7 +2687,7 @@ body {
 }
 
 /*红包获取记录*/
-.access-details li {
+/*.access-details li {
     position: relative;
     height: 80px;
     background-color: #fff;
@@ -2707,10 +2721,10 @@ body {
 }
 .access-details li .reduce {
     color: #df1b19;
-}
+}*/
 
 /*提现记录*/
-.balance-details li {
+/*.balance-details li {
     position: relative;
     height: 80px;
     background-color: #fff;
@@ -2744,10 +2758,10 @@ body {
 }
 .balance-details li .reduce {
     color: #df1b19;
-}
+}*/
 
 /*活动暂未开放*/
-.activity-error {
+/*.activity-error {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -2781,10 +2795,10 @@ body {
     .activity-error h2 {
         top: 62%;
     }
-}
+}*/
 
 /*活动中心*/
-.activity {
+/*.activity {
     overflow: scroll;
     position: fixed;
     top: 0;
@@ -2824,7 +2838,7 @@ body {
     color: #999;
     font-size: 12px;
     line-height: 16px;
-}
+}*/
 
 /*页面不存在*/
 .error {
@@ -2854,6 +2868,7 @@ body {
 /*商品结算页面*/
 .goods-settlement {
     padding-bottom: 46px;
+    background-color: #fff;
 }
 .goods-settlement .address {
     position: relative;
@@ -3082,7 +3097,7 @@ body {
     font-weight: bold;
     text-align: right;
 }
-.goods-settlement .nav-bottom em {
+.goods-settlement .nav-bottom a {
     float: right;
     width: 30%;
     height: 45px;
@@ -3093,7 +3108,7 @@ body {
     text-align: center;
     line-height: 45px;
 }
-.goods-settlement .mask {
+/*.goods-settlement .mask {
     display: none;
     position: fixed;
     top: 0;
@@ -3170,8 +3185,8 @@ body {
     font-weight: bold;
     text-align: center;
     line-height: 45px;
-}
-@media (max-width:320px) {
+}*/
+/*@media (max-width:320px) {
     .goods-settlement .info .name {
         width: 50%;
         left: 30%;
@@ -3188,7 +3203,7 @@ body {
         width: 50%;
         left: 30%;
     }
-}
+}*/
 
 /*支付成功*/
 .payfor-success {
@@ -3260,7 +3275,7 @@ body {
 }
 
 /*抢红包界面*/
-.hongbao {
+/*.hongbao {
     overflow: scroll;
     position: fixed;
     top: 0;
@@ -3304,10 +3319,10 @@ body {
         bottom: 7%;
         font-size: 14px;
     }
-}
+}*/
 
 /*我的积分*/
-.integral {
+/*.integral {
     overflow: scroll;
     position: fixed;
     top: 0;
@@ -3444,10 +3459,10 @@ body {
     height: 100%;
     background: url(../icon/icon_arrow_right.png) no-repeat 98% center;
     background-size: 5%;
-}
+}*/
 
 /*积分明细*/
-.integral-details {
+/*.integral-details {
     position: fixed;
     overflow: scroll;
     top: 0;
@@ -3532,10 +3547,10 @@ body {
     font-size: 12px;
     text-align: center;
     line-height: 40px;
-}
+}*/
 
 /*积分说明*/
-.integral-instructions {
+/*.integral-instructions {
     padding: 0px 3%;
 }
 .integral-instructions li {
@@ -3551,7 +3566,7 @@ body {
 .integral-instructions li h2 {
     padding: 5px 0;
     color: #666;
-}
+}*/
 
 /*我的订单*/
 /*.my-order {
@@ -4371,7 +4386,7 @@ body {
 }
 
 /*我的奖品*/
-.my-prize {
+/*.my-prize {
     background-color: #e7e7e7;
 }
 .my-prize .prize-title {
@@ -4482,10 +4497,10 @@ body {
     .my-prize .prize-details li .prize-list em {
         font-size: 12px;
     }
-}
+}*/
 
 /*新闻列表页*/
-#news {
+/*#news {
     overflow: scroll;
     position: fixed;
     top: 0;
@@ -4537,10 +4552,10 @@ body {
     font-size: 12px;
     text-align: center;
     line-height: 40px;
-}
+}*/
 
 /*新闻详情页*/
-.news-details {
+/*.news-details {
     padding: 12px;
 }
 .news-details h1 {
@@ -4554,4 +4569,4 @@ body {
 .news-details p {
     padding-top: 20px;
     border-top: 1px solid #e7e7e7;
-}
+}*/

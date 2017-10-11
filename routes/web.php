@@ -30,6 +30,10 @@ $this->group(['namespace' => 'Home'], function () {
         $this->get('/order/add', 'OrderController@addView')->name('home.order_add');
         $this->get('/order/addPost', 'OrderController@addPost')->name('home.order_add_post');
 
+        //修改收货信息
+        $this->get('/address', 'OrderController@addressView')->name('home.address');
+        $this->post('/address', 'OrderController@addressPost');
+
         //个人页面
         $this->get('person', 'PersonController@view')->name('home.person');
         $this->get('person/update', 'PersonController@update')->name('home.person_update');

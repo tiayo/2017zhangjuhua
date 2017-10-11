@@ -404,10 +404,7 @@ $(document).ready(function(){
     });
     $(".save").click(function() {
         if($("#customerName").val() != "" && $("#psCustomerTel").val() != "" && $("dd").text() != "" && $("#detailed-address").val() != "" ) {
-            $(".save").attr("href", "address-choose.html");
-            $("#customerName").val("");
-            $("#psCustomerTel").val("");
-            $("#detailed-address").val("");
+           $('#address_form').submit();
         } else {
             $(".mask-false").fadeIn(1000, function() {
                 $(".mask-false").fadeOut(1000);
@@ -445,55 +442,58 @@ $(document).ready(function(){
             $(".goods-settlement .mask").hide();
         });
     });
-    if($(".content").length == 1) {
-        var numOf = parseInt($(".goods-settlement .info .num-of span").text());
-        $(".goods-settlement .goods-num .num").val(numOf);
-        var totalAmount = parseInt($(".goods-settlement .info .num-of span").text())*parseInt($(".goods-settlement .info .pay-for").text());
-        $(".goods-settlement .nav-bottom h1 span").html(totalAmount);
-        $(".goods-settlement .mask .payment .payment-amount span").html(totalAmount);
-        $(".goods-settlement .goods-num .jia").on("click", function() {
-            numOf += 1;
-            console.log($(".goods-settlement .goods-num .num").val());
-            $(".goods-settlement .info .num-of span").html(numOf);
-            $(".goods-settlement .goods-num .num").val(numOf);
-            var totalAmount = parseInt($(".goods-settlement .info .num-of span").text())*parseInt($(".goods-settlement .info .pay-for").text());
-            $(".goods-settlement .nav-bottom h1 span").html(totalAmount);
-            $(".goods-settlement .mask .payment .payment-amount span").html(totalAmount);
-        });
-        $(".goods-settlement .goods-num .jian").on("click", function() {
-            numOf -= 1;
-            $(".goods-settlement .info .num-of span").html(numOf);
-            $(".goods-settlement .goods-num .num").val(numOf);
-            var totalAmount = parseInt($(".goods-settlement .info .num-of span").text())*parseInt($(".goods-settlement .info .pay-for").text());
-            $(".goods-settlement .nav-bottom h1 span").html(totalAmount);
-            $(".goods-settlement .mask .payment .payment-amount span").html(totalAmount);
-            if(numOf <= 1) {
-                numOf = 1;
-                $(".goods-settlement .info .num-of span").html(numOf);
-                $(".goods-settlement .goods-num .num").val(numOf);
-                $(".goods-settlement .nav-bottom h1 span").html($(".goods-settlement .info .pay-for").text());
-                $(".goods-settlement .mask .payment .payment-amount span").html($(".goods-settlement .info .pay-for").text());
-            }
-        });
-        $(".goods-settlement").css({"padding-bottom" : 0});
-    } else {
-        $(".goods-settlement .content .goods-num").remove();
-        var len = $(".content").length;
-        var sum = 0;
-        var price = 0;
-        var num = 0;
-        var allsum = 0;
-        for(var i = 0; i < len; i++) {
-            var numOf = parseInt($(".goods-settlement .content .info .num-of span").eq(i).text());
-            $(".goods-settlement .content .goods-num .num").eq(i).val(numOf);
-            price = $(".pay-for").eq(i).text();
-            num = $(".number").eq(i).text();
-            sum = (price * num);
-            allsum = allsum + sum;
-            $(".goods-settlement .nav-bottom h1 span").html(allsum);
-            $(".goods-settlement .mask .payment .payment-amount span").html(allsum);
-        }
-    }
+
+
+
+    // if($(".content").length == 1) {
+    //     var numOf = parseInt($(".goods-settlement .info .num-of span").text());
+    //     $(".goods-settlement .goods-num .num").val(numOf);
+    //     var totalAmount = parseInt($(".goods-settlement .info .num-of span").text())*parseInt($(".goods-settlement .info .pay-for").text());
+    //     $(".goods-settlement .nav-bottom h1 span").html(totalAmount);
+    //     $(".goods-settlement .mask .payment .payment-amount span").html(totalAmount);
+    //     $(".goods-settlement .goods-num .jia").on("click", function() {
+    //         numOf += 1;
+    //         console.log($(".goods-settlement .goods-num .num").val());
+    //         $(".goods-settlement .info .num-of span").html(numOf);
+    //         $(".goods-settlement .goods-num .num").val(numOf);
+    //         var totalAmount = parseInt($(".goods-settlement .info .num-of span").text())*parseInt($(".goods-settlement .info .pay-for").text());
+    //         $(".goods-settlement .nav-bottom h1 span").html(totalAmount);
+    //         $(".goods-settlement .mask .payment .payment-amount span").html(totalAmount);
+    //     });
+    //     $(".goods-settlement .goods-num .jian").on("click", function() {
+    //         numOf -= 1;
+    //         $(".goods-settlement .info .num-of span").html(numOf);
+    //         $(".goods-settlement .goods-num .num").val(numOf);
+    //         var totalAmount = parseInt($(".goods-settlement .info .num-of span").text())*parseInt($(".goods-settlement .info .pay-for").text());
+    //         $(".goods-settlement .nav-bottom h1 span").html(totalAmount);
+    //         $(".goods-settlement .mask .payment .payment-amount span").html(totalAmount);
+    //         if(numOf <= 1) {
+    //             numOf = 1;
+    //             $(".goods-settlement .info .num-of span").html(numOf);
+    //             $(".goods-settlement .goods-num .num").val(numOf);
+    //             $(".goods-settlement .nav-bottom h1 span").html($(".goods-settlement .info .pay-for").text());
+    //             $(".goods-settlement .mask .payment .payment-amount span").html($(".goods-settlement .info .pay-for").text());
+    //         }
+    //     });
+    //     $(".goods-settlement").css({"padding-bottom" : 0});
+    // } else {
+    //     $(".goods-settlement .content .goods-num").remove();
+    //     var len = $(".content").length;
+    //     var sum = 0;
+    //     var price = 0;
+    //     var num = 0;
+    //     var allsum = 0;
+    //     for(var i = 0; i < len; i++) {
+    //         var numOf = parseInt($(".goods-settlement .content .info .num-of span").eq(i).text());
+    //         $(".goods-settlement .content .goods-num .num").eq(i).val(numOf);
+    //         price = $(".pay-for").eq(i).text();
+    //         num = $(".number").eq(i).text();
+    //         sum = (price * num);
+    //         allsum = allsum + sum;
+    //         $(".goods-settlement .nav-bottom h1 span").html(allsum);
+    //         $(".goods-settlement .mask .payment .payment-amount span").html(allsum);
+    //     }
+    // }
 
     // 我的收藏
     var sclSp = $(".my-collection .content .list").length;

@@ -40,7 +40,7 @@
         <ul class="payment">
             <li class="payment-details">付款详情<em></em></li>
             <li class="payment-way">付款方式<span>银行卡转账</span></li>
-            <li class="payment-amount">需支付<span>1200</span></li>
+            <li class="payment-amount">需支付<span></span></li>
             <li><a href="{{ route('home.order_add_post') }}">确认付款</a></li>
         </ul>
     </div>

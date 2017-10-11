@@ -6,6 +6,7 @@ use App\Car;
 use App\Http\Controllers\Controller;
 use App\Services\Home\CarService;
 use App\Services\Home\OrderService;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,9 +40,12 @@ class OrderController extends Controller
 
         $user = Auth::user();
 
+        $total_price = $this->car->total_price($cars);
+
         return view('home.order.add', [
             'cars' => $cars,
             'user' => $user,
+            'total_price' => $total_price,
         ]);
     }
 
@@ -56,13 +60,27 @@ class OrderController extends Controller
         return redirect()->route('home.person');
     }
 
-    public function changeStatus()
+    public function addressView()
     {
-
+        return view('home.order.address', [
+            'user' => Auth::user(),
+        ]);
     }
 
-    public function destory()
+    public function addressPost()
     {
+        $this->validate($this->request, [
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+        ]);
 
+        User::where('id', Auth::id())->update([
+            'name' => $this->request->get('name'),
+            'phone' => $this->request->get('phone'),
+            'address' => $this->request->get('address'),
+        ]);
+
+        return redirect()->route('home.order_add');
     }
 }
