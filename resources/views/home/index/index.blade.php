@@ -12,13 +12,13 @@
         <div class="swiper-container index-bigpic clearfix">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <a href="#"><img src="/style/home/picture/bigpic1.jpg"/></a>
+                    <a href="#"><img src="{{ asset('/style/home/picture/bigpic1.jpg') }}"/></a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="#"><img src="/style/home/picture/bigpic2.jpg"/></a>
+                    <a href="#"><img src="{{ asset('/style/home/picture/bigpic2.jpg') }}"/></a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="#"><img src="/style/home/picture/bigpic3.jpg"/></a>
+                    <a href="#"><img src="{{ asset('/style/home/picture/bigpic3.jpg') }}"/></a>
                 </div>
             </div>
             <!-- 分页器 -->
