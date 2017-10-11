@@ -33,16 +33,8 @@
         <div class="courier">配送方式<em>快递免邮</em></div>
     </div>
     <div class="nav-bottom">
-        <h1>合计:<span></span></h1>
-        <em>提交订单</em>
-    </div>
-    <div class="mask">
-        <ul class="payment">
-            <li class="payment-details">付款详情<em></em></li>
-            <li class="payment-way">付款方式<span>银行卡转账</span></li>
-            <li class="payment-amount">需支付<span></span></li>
-            <li><a href="{{ route('home.order_add_post') }}">确认付款</a></li>
-        </ul>
+        <h1>合计:<span>{{ $total_price }}</span></h1>
+        <a href="{{ route('home.order_add_post') }}">提交订单</a>
     </div>
 </div>
 @endsection
