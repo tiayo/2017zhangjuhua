@@ -21,7 +21,7 @@ class IndexController extends Controller
     public function index()
     {
         //今日推荐
-        $recommend_today = $this->index->getByType(5, 10);
+        $recommend_today = $this->index->getByType(0, 10);
 
         //购物车数量
         $car_count = $this->car->count();

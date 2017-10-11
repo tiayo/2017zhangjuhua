@@ -4,6 +4,14 @@
 
 @section('title', '商品详情')
 
+@section('style')
+    <style>
+        .show-details img {
+            width: 92%;
+        }
+    </style>
+@endsection
+
 @section('body')
 <div class="goods-details">
     <div class="swiper-container bigpic clearfix">
@@ -27,10 +35,6 @@
             <h1>{{ $commodity['price'] }}</h1>
             <h3>邮费：<em>0</em> 元</h3>
         </div>
-        <!-- <div class="goods-distribution clearfix">
-            <h2>快递：<em>0.00</em></h2>
-            <h3>月换购 <em>11509</em> 笔</h3>
-        </div> -->
     </div>
     <ul class="show-title clearfix">
         <li class="on">图文详情</li>
@@ -46,7 +50,7 @@
         <span class="join-collection join-collection1">收藏</span>
         <a href="{{ route('home.car') }}">购物车<em>{{ $car->count() }}</em></a>
         <span class="join-cart">加入购物车</span>
-        <a href="###" class="exchange-now">立即兑换</a>
+        <a href="#" class="exchange-now">立即购买</a>
     </div>
     <div>
         <form id="car_add_gorm" action="{{ route('home.car_add', ['id' => $commodity['id']]) }}" method="post">

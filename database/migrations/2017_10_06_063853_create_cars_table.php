@@ -20,6 +20,7 @@ class CreateCarsTable extends Migration
             $table->integer('num'); //数量
             $table->float('price'); //价格
             $table->string('remark'); //备注（记录商品属性）
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

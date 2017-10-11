@@ -25,32 +25,13 @@
             <div class="swiper-pagination"></div>
         </div>
         <div class="nav-top clearfix">
-            <a href="classification-list.html">精选产品</a>
-            <a href="classification-list.html">超值专区</a>
-            <a href="classification-list.html">大牌专区</a>
-            <a href="classification-list.html">折扣专区</a>
+            <a href="{{ route('home.category_group', ['id' => 1]) }}">精选产品</a>
+            <a href="{{ route('home.category_group', ['id' => 2]) }}">超值专区</a>
+            <a href="{{ route('home.category_group', ['id' => 3]) }}">大牌专区</a>
+            <a href="{{ route('home.category_group', ['id' => 4]) }}">折扣专区</a>
         </div>
-        <!-- <div class="news clearfix">
-            <strong></strong>
-            <div class="swiper-containerNews clearfix">
-                <div class="swiper-wrapper news-list">
-                    <div class="swiper-slide">
-                        <a href="news.html">1今年全球出现了20项黑科技今年全球出现了20项黑科技</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="news.html">2今年全球出现了20项黑科技今年全球出现了20项黑科技</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="news.html">3今年全球出现了20项黑科技今年全球出现了20项黑科技</a>
-                    </div>
-                </div>
-            </div>
-            <a href="news.html">更多</a>
-        </div> -->
         <div class="goods">
-            <b class="hot-exchange clearfix" style="width: 100%;padding-left: 0;">
-                今日推荐
-            </b>
+            <b class="hot-exchange clearfix" style="width: 100%;padding-left: 1em;">今日推荐</b>
             <ul class="goods-con clearfix">
                 @foreach($recommend_today as $commodity)
                     <li>
@@ -68,9 +49,6 @@
                 @endforeach
             </ul>
         </div>
-        <!-- <a class="index-advertising clearfix">
-            <img src="../picture/1ae1ccc0-9078-47ea-8c40-3578bbfc11cf.jpg" alt="" />
-        </a> -->
         <div class="copyright">
             <h1>© {{ config('site.title') }} 版权所有</h1>
             <h2>李艺芳提供技术支持</h2>

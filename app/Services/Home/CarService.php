@@ -48,6 +48,16 @@ class CarService
     }
 
     /**
+     * 获取状态为1的购物车条目
+     *
+     * @return mixed
+     */
+    public function getAvalible()
+    {
+        return $this->car->getAvalible();
+    }
+
+    /**
      * 统计数量
      *
      * @return mixed
@@ -124,6 +134,30 @@ class CarService
     }
 
     /**
+     * 更新记录
+     *
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function update($id, $data)
+    {
+        return $this->car->update($id, $data);
+    }
+
+    /**
+     * 更新记录
+     *
+     * @param $where
+     * @param $data
+     * @return mixed
+     */
+    public function updateWhere($where, $data)
+    {
+        return $this->car->updateWhere($where, $data);
+    }
+
+    /**
      * 删除管理员
      *
      * @param $id
@@ -136,5 +170,17 @@ class CarService
 
         //执行删除
         return $this->car->destroy($id);
+    }
+
+    /**
+     * 删除指定条件记录
+     *
+     * @param $where
+     * @return mixed
+     */
+    public function destroyWhere($where)
+    {
+        //执行删除
+        return $this->car->destroyWhere($where);
     }
 }

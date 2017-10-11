@@ -44,7 +44,7 @@ $(document).ready(function(){
             this.bool = true;
         }
     });
-    
+
     // 商品分类页面
     // tab切换
     $(".classification .tab li").click(function() {
@@ -68,7 +68,7 @@ $(document).ready(function(){
     // 内容清浮动
     $(".classification .tabcon li").addClass('clearfix');
     $(".classification .tabcon li a").addClass('clearfix');
-    
+
 
     // 购物车页面
     var gwcSp = $(".shopping-cart .content .list").length;
@@ -114,7 +114,7 @@ $(document).ready(function(){
     $(".shopping-cart .settlement a").click(function() {
         var len = $(".shopping-cart .sel-red1").length;
         if(len > 0) {
-            $(".shopping-cart .settlement a").attr("href","goods-settlement.html");
+            $("#car_post_form").submit();
         } else {
             $(".shopping-cart .delete-prompt").show();
             var timer = setInterval(function() {
@@ -133,7 +133,7 @@ $(document).ready(function(){
         init: function(){
             this.sel();
             this.add();
-            this.del(); 
+            this.del();
         },
         sel: function(){
             $(".choose em").on("click", function(){
@@ -154,17 +154,17 @@ $(document).ready(function(){
                 var _this = $(this);
                 if(_this.hasClass('sel-red')){
                     _this.removeClass('sel-red'),
-                    $(".choose em").removeClass('sel-red1');
+                        $(".choose em").removeClass('sel-red1');
                     $(".shopping-cart .settlement em").html(0);
                 } else {
                     _this.addClass('sel-red'),
-                    $(".choose em").addClass('sel-red1');
+                        $(".choose em").addClass('sel-red1');
                     var len3 = $(".sel-red1").length;
                     $(".shopping-cart .settlement em").html(len3);
                 };
                 shop.show();
             });
-            
+
             $(".shopping-cart .list .delete").on("click", function() {
                 $(this).siblings('.choose').children().removeClass('sel-red');
                 shop.show();
@@ -369,7 +369,7 @@ $(document).ready(function(){
         $(this).children('em').addClass('default').parent().parent().parent().siblings().children('h3').children('span').children('strong').html("设为默认");
         $(this).children('strong').html("默认地址");
     });
-    
+
     // 添加新地址
     $(".add-address .address-info li:nth-last-child(1) h1 span").on("click", function() {
         if(this.bool == true || this.bool == undefined) {
@@ -534,7 +534,7 @@ $(document).ready(function(){
             }, 1000);
         }
     });
-    
+
     // 我的奖品
     $(".my-prize .prize-title li").click(function() {
         $(this).addClass('on1').siblings().removeClass('on1');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use App\Services\Home\CarService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CarController extends Controller
 {
@@ -22,17 +23,40 @@ class CarController extends Controller
         //获取购物车列表
         $lists = $this->car->get();
 
-        //统计数量
-        $count = $this->car->count();
-
-        //统计总金额
-        $total_price = $this->car->total_price($lists);
-
         return view('home.car.view', [
             'lists' => $lists,
-            'count' => $count,
-            'total_price' => $total_price,
         ]);
+    }
+
+    /**
+     * 购物车结算时修改购物车订单
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update()
+    {
+        //获取数据
+        $post = $this->request->all();
+
+        //删除被删除的购物车条目
+        $this->car->destroyWhere([[
+            'id', 'whereNotIn', $post['car_avalible']
+        ]]);
+
+        //将购物车全部status字段置为0
+        $this->car->updateWhere([
+            ['user_id', Auth::id()],
+        ], ['status' => 0,]);
+
+        //更新购物车条目数量和状态
+        foreach ($post['car_id'] as $car_id) {
+            $this->car->update($car_id, [
+                'num' => $post['num'][$car_id],
+                'status' => 1,
+            ]);
+        }
+
+       return redirect()->route('home.order_add');
     }
 
     public function add($commodity_id)

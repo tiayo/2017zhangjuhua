@@ -23,18 +23,18 @@ class OrderService
         $this->commodity = $commodity;
     }
 
-    public function add($post)
+    public function add()
     {
         //获取当前用户购物车所有商品
         $cars = $this->car->get();
 
         //构造订单
         $order['user_id'] = Auth::id();
-        $order['name'] = $post['name'] ?? Auth::user()['name'];
-        $order['address'] = $post['address'] ?? Auth::user()['address'];
-        $order['phone'] = $post['phone'] ?? Auth::user()['phone'];
+        $order['name'] = Auth::user()['name'];
+        $order['address'] = Auth::user()['address'];
+        $order['phone'] = Auth::user()['phone'];
         $order['price'] = $this->car->total_price($cars);
-        $order['type'] = $post['type'] ?? 1;
+        $order['type'] = 1;
         $order['status'] = 1; //测试：默认为已付款
 
         //创建订单

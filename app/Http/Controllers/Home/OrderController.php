@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Services\Home\CarService;
 use App\Services\Home\OrderService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -34,17 +35,20 @@ class OrderController extends Controller
 
     public function addView()
     {
-        $cars = $this->car->get();
+        $cars = $this->car->getAvalible();
+
+        $user = Auth::user();
 
         return view('home.order.add', [
             'cars' => $cars,
+            'user' => $user,
         ]);
     }
 
     public function addPost()
     {
         try{
-            $this->order->add($this->request->all());
+            $this->order->add();
         } catch (\Exception $exception) {
             return response($exception->getMessage());
         }

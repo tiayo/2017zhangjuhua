@@ -1,73 +1,100 @@
 @extends('home.layouts.app')
 
-@section('title', Auth::user()['name'].'的购物车')
-
-@section('class', 'shopping-cart')
+@section('title', '我的购物车')
 
 @section('body')
-    <div class="content clearfix">
-        <div class="shopping-cart-left">
-            <div class="cart-title clearfix">
-                <h1>您的购物袋 <span>共 {{ $count }} 件</span></h1>
-                <a href="/">继续购物</a>
-            </div>
-            <div class="cart-product-con">
-                <!-- <div class="cart-product-select-all clearfix">
-                    <div class="checkall">
-                        <span></span>全选
-                    </div>
-                    <p class="cart-selected-num">
-                        （已选中 <span>0</span> 件）
-                    </p>
-                </div> -->
-                <div class="cart-product-list">
-                    @foreach($lists as $list)
-                        @php
-                            $attributes = explode('|', $list['remark']);
-                            foreach ($attributes as $attribute) {
-                                $explode = explode(':', $attribute);
-                                $attr[$explode[0]] = $explode[1];
-                            }
-                        @endphp
-                        <div class="cart-product-info clearfix">
-                            <!-- <div class="check"></div> -->
-                            <img src="{{ $list->commodity->image_0 }}" class="cart-product-img"/>
-                            <div class="cart-product-details">
-                                <p>
-                                    <a href="{{ route('home.commodity_view', ['id' => $list['commidity_id']]) }}">{{ $list->commodity->name }}</a>
-                                    <span class="info-code">商品编号：{{ $list->commodity->id }}</span>
-                                </p>
-                                <div class="info-describe">
-                                    <p>颜色：<span>{{ $attr['color'] }}</span></p>
-                                    <p class="info-size">尺码：<span>{{ $attr['size'] }}</span></p>
-                                    <div class="info-price-num">
-                                        ￥<span class="price">{{ $list['price'] }}</span>x<em>{{ $list['num'] }}</em>
-                                    </div>
-                                </div>
-                                <div class="del-goods">
-                                    <div class="del-button" onclick="javascript:if(confirm('确实要删除吗?'))location='{{ route('home.car_destory', ['id' => $list['id']]) }}'">删除</div>
-                                    <div class="this-allprice">￥<span>@php echo $list['price'] * $list['num']  @endphp</span></div>
-                                </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        <div class="shopping-cart-right">
-            <div class="cart-order-summary clearfix">
-                <div class="cart-order-num">
-                    订单摘要：
-                    <span>共 <em>{{ $count }}</em> 件</span>
-                </div>
-                <div class="cart-total-price">
-                    <div class="product-total clearfix">
-                        <h1>商品总计</h1>
-                        <h2>￥<span>{{ $total_price }}</span>.00</h2>
-                    </div>
-                </div>
-                <a href="{{ route('home.order_add') }}" class="btn-gradient-blue">结算</a>
-            </div>
+<div class="shopping-cart">
+    <div class="batch-delete">
+        <span>您的购物车有 <em></em> 件商品</span>
+        <strong>批量删除</strong>
+    </div>
+    <div class="delete-mask">
+        <div class="delete-list">
+            确定将这 <em></em> 个宝贝删除？
+            <span class="cancel-delete">取消</span>
+            <span class="confirm-delete">确定</span>
         </div>
     </div>
+    <div class="delete-prompt">您未选中任何商品</div>
+    <div class="content">
+        <form id="car_post_form" method="post" action="{{ route('home.car_update') }}">
+            {{ csrf_field() }}
+            @foreach($lists as $list)
+                @php
+                    $attributes = explode('|', $list['remark']);
+                @endphp
+                <div class="list">
+                    <input type="hidden" name="car_avalible[]" value="{{ $list['id'] }}">
+                    <input type="hidden" class="car_id" value="{{ $list['id'] }}">
+                    <span class="choose"><em></em></span>
+                    <img src="{{ $list->commodity->image_0 }}"/>
+                    <h2>{{ $list->commodity->name }}</h2>
+                    <h3 style="margin: 1em 0 1em 0">
+                        @foreach($attributes as $attribute)
+                            @php
+                                $attribute = explode(':', $attribute)
+                            @endphp
+                            <span>{{ $attribute[0] }}:<strong>{{ $attribute[1] }}</strong></span><br/>
+                        @endforeach
+                    </h3>
+                    <h4>
+                        <span class="price" data-price="{{ $list['price'] }}">{{ $list['price'] }}</span>
+                        <div class="quantity">
+                            <span class="jian"></span>
+                            <input type="text" class="num" name="num[{{ $list['id'] }}]" value="{{ $list['num'] }}">
+                            <span class="jia"></span>
+                        </div>
+                    </h4>
+                </div>
+            @endforeach
+        </form>
+    </div>
+    <div class="none-mask">
+        <span>你的购物车还没有商品哦</span>
+        <a href="/">去商城</a>
+    </div>
+    <div class="total-price">
+        <div class="all-choose"><em></em>全选</div>
+        <div class="all-price">
+            <span class="total">合计：<em>0</em></span>
+        </div>
+        <div class="settlement">
+            <a href="#">去结算(<em>0</em>)</a>
+        </div>
+        <div class="nav clearfix">
+            @include('home.layouts.sidebar')
+        </div>
+    </div>
+</div>
+    <script>
+        $(document).ready(function () {
+            //点击选择
+            $('.choose').click(function () {
+                //正向
+                if ($(this).find('.sel-red1').length != 0) {
+                    return $(this).parent().find('.car_id').attr('name', 'car_id[]');
+                }
+
+                //反向
+                return $(this).parent().find('.car_id').attr('name', '');
+            });
+
+            //全选
+            $('.all-choose').click(function () {
+
+                //正向
+                if ($(this).find('.sel-red').length != 0) {
+                    $('.list').each(function () {
+                        return $(this).find('.car_id').attr('name', 'car_id[]');
+                    });
+                }
+                //反向
+                else {
+                    $('.list').each(function () {
+                        return $(this).find('.car_id').attr('name', '');
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

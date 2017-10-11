@@ -40,6 +40,15 @@ class CarRepository
             ->get();
     }
 
+    public function getAvalible()
+    {
+        return $this->car
+            ->where('user_id', Auth::id())
+            ->where('status', 1)
+            ->orderBy('id', 'desc')
+            ->get();
+    }
+
     /**
      * 统计数量
      *
@@ -134,5 +143,27 @@ class CarRepository
         return $this->car
             ->where('id', $id)
             ->update($data);
+    }
+
+    /**
+     * 更新记录
+     *
+     * @param $where
+     * @param $data
+     * @return mixed
+     */
+    public function updateWhere($where, $data)
+    {
+        return $this->car
+            ->where($where)
+            ->update($data);
+    }
+
+    public function destroyWhere($where)
+    {
+        return $this->car
+            ->where('user_id', Auth::id())
+            ->where($where)
+            ->delete();
     }
 }
