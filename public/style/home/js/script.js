@@ -403,7 +403,7 @@ $(document).ready(function(){
         }
     });
     $(".save").click(function() {
-        if($("#customerName").val() != "" && $("#psCustomerTel").val() != "" && $("dd").text() != "" && $("#detailed-address").val() != "" ) {
+        if($("#customerName").val() != "" && $("#psCustomerTel").val() != "" && $("#detailed-address").val() != "" ) {
            $('#address_form').submit();
         } else {
             $(".mask-false").fadeIn(1000, function() {
