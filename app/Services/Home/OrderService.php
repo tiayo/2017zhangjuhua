@@ -25,6 +25,8 @@ class OrderService
 
     public function add()
     {
+        throw_if(empty(Auth::user()['address']) || empty(Auth::user()['phone']), Exception::class, '您没有地址和电话！');
+
         //获取当前用户购物车所有商品
         $cars = $this->car->get();
 
