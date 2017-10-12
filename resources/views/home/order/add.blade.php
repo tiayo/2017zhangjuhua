@@ -5,7 +5,7 @@
 
 @section('body')
 <div class="goods-settlement clearfix">
-    <a href="add-address.html" class="address">
+    <a href="{{ route('home.address') }}" class="address">
         <h1>收货人:<span>{{ $user['name'] }}</span><em>{{ $user['phone'] }}</em></h1>
         <h2>{{ $user['address'] }}</h2>
         <h3></h3>
