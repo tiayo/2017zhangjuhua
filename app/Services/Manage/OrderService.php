@@ -102,7 +102,6 @@ class OrderService
     public function update($post, $id)
     {
         //统计数据
-        $data['commodity'] = implode($post['commodity'], ',');
         $data['name'] = $post['name'];
         $data['address'] = $post['address'];
         $data['phone'] = $post['phone'];

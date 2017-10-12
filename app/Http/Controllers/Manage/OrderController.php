@@ -62,8 +62,7 @@ class OrderController extends Controller
     public function updateView($id)
     {
         try {
-            $old_input = $this->request->session()->has('_old_input') ?
-                session('_old_input') : $this->order->first($id);
+            $old_input = $this->order->first($id);
         } catch (\Exception $e) {
             return response($e->getMessage(), $e->getCode());
         }
@@ -83,7 +82,6 @@ class OrderController extends Controller
     public function updatePost($order_id)
     {
         $this->validate($this->request, [
-            'commodity' => 'required',
             'name' => 'required',
             'address' => 'required',
             'phone' => 'required',

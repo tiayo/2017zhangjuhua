@@ -36,15 +36,8 @@
                     <div class="form-group">
                         <label for="commodity" class="col-sm-2 col-sm-2 control-label">商品</label>
                         <div class="col-sm-3">
-                            @if(is_array($old_input['commodity']))
-                                {{ $old_input['commodity'] = implode($old_input['commodity'], ',') }}
-                            @endif
-
-                            @foreach(explode(',', $old_input['commodity']) as $commodity)
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" name="commodity[]" value="{{ $commodity}}" checked>
-                                    {{ \App\Commodity::find($commodity)->name }}
-                                </label>
+                            @foreach($old_input->orderDetail as $list_detail)
+                                {{ $list_detail->commodity->name }} <br>
                             @endforeach
                         </div>
                     </div>
