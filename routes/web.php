@@ -1,7 +1,7 @@
 <?php
 
 $this->get('password', function() {
-    return bcrypt('zhoujinsen.sb');
+    return bcrypt('liyifang2017');
 });
 
 $this->group(['namespace' => 'Home'], function () {

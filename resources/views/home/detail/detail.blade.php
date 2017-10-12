@@ -50,7 +50,7 @@
         <span class="join-collection join-collection1">收藏</span>
         <a href="{{ route('home.car') }}">购物车<em>{{ $car->count() }}</em></a>
         <span class="join-cart">加入购物车</span>
-        <a href="#" class="exchange-now">立即购买</a>
+        <a href="#" class="join-cart exchange-now">立即购买</a>
     </div>
     <div>
         <form id="car_add_gorm" action="{{ route('home.car_add', ['id' => $commodity['id']]) }}" method="post">
@@ -74,7 +74,7 @@
                                 <p>{{ $attribute['name'] }}</p>
                                 <div class="type-choose clearfix">
                                     @foreach(explode(',', $attribute['value']) as $value)
-                                        <input type="text" name="attribute[{{ $attribute['name'] }}]" value="{{ $value }}" readonly/>
+                                        <input type="text" id="attribute[{{ $attribute['name'] }}]" value="{{ $value }}" readonly/>
                                     @endforeach
                                 </div>
                             </li>
@@ -124,6 +124,12 @@
 
     //提交
     function car_add_gorm() {
+
+        $('.type-choose').find('.on').each(function () {
+            var value = $(this).attr('id');
+            $(this).attr('name', value);
+        });
+
         $('#car_add_gorm').submit();
     }
 </script>

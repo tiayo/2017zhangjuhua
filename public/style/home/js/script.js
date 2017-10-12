@@ -295,23 +295,23 @@ $(document).ready(function(){
             }
         });
     });
-    $(".goods-details .nav-bottom .exchange-now").click(function() {
-        $(".goods-details .mask").show();
-        $("body,html").css({"position":"fixed","top":"0px","bottom":"0px"});
-        $(".goods-details .mask .confirm").click(function() {
-            var len1 = $(".goods-details .mask .mask-content li").length;
-            var len2 = $(".goods-details .mask .mask-content li .on").length;
-            if(len1 == len2) {
-                $(".goods-details .mask .confirm").attr("href","goods-settlement.html");
-            } else {
-                $(".goods-details .join-failure").show();
-                var timer2 = setInterval(function() {
-                    clearInterval(timer2);
-                    $(".goods-details .join-failure").fadeOut();
-                }, 1000);
-            }
-        });
-    });
+    // $(".goods-details .nav-bottom .exchange-now").click(function() {
+    //     $(".goods-details .mask").show();
+    //     $("body,html").css({"position":"fixed","top":"0px","bottom":"0px"});
+    //     $(".goods-details .mask .confirm").click(function() {
+    //         var len1 = $(".goods-details .mask .mask-content li").length;
+    //         var len2 = $(".goods-details .mask .mask-content li .on").length;
+    //         if(len1 == len2) {
+    //             $(".goods-details .mask .confirm").attr("href","goods-settlement.html");
+    //         } else {
+    //             $(".goods-details .join-failure").show();
+    //             var timer2 = setInterval(function() {
+    //                 clearInterval(timer2);
+    //                 $(".goods-details .join-failure").fadeOut();
+    //             }, 1000);
+    //         }
+    //     });
+    // });
     $(".goods-details .mask .mask-close").click(function() {
         $(".goods-details .mask").hide();
         $("body,html").css({"position":"static","overflow":"scroll"});
