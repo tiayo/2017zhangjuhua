@@ -48,27 +48,27 @@
 @endsection
 
 @section('body')
-<div class="login">
-    <form action="{{ route('home.login') }}" method="post">
-        {{ csrf_field() }}
-        <div id="login-dialog">
-            <div id="user">
-                <lable>账号：</lable>
-                <input type="email" name="email" placeholder="请输入登录邮箱"/>
-            </div>
-            <div id="user">
-                <lable>密码：</lable>
-                <input type="password" name="password" placeholder="请输入密码"/>
-            </div>
+    <div class="login">
+        <form action="{{ route('home.login') }}" method="post">
+            {{ csrf_field() }}
+            <div id="login-dialog">
+                <div id="user">
+                    <lable>账号：</lable>
+                    <input type="email" name="email" placeholder="请输入登录邮箱"/>
+                </div>
+                <div id="user">
+                    <lable>密码：</lable>
+                    <input type="password" name="password" placeholder="请输入密码"/>
+                </div>
 
-            @foreach($errors as $error)
-                <div class="error">{{ $error }}</div>
-            @endforeach
-        </div>
-        <button type="submit" id="login-button">登录</button>
-    </form>
-    <a href="{{ route('home.register') }}" class="register">还没有账号？</a>
-</div>
+                @foreach($errors as $error)
+                    <div class="error">{{ $error }}</div>
+                @endforeach
+            </div>
+            <button type="submit" id="login-button">登录</button>
+        </form>
+        <a href="{{ route('home.register') }}" class="register">还没有账号？</a>
+    </div>
     <script>
         @foreach($errors->all() as $error)
             alert('{{ $error }}');

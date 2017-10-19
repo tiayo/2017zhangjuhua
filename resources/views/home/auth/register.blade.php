@@ -77,4 +77,9 @@
         <a href="{{ route('home.login') }}" class="login">已经有账号了？</a>
     </form>
 </div>
+<script>
+    @foreach($errors->all() as $error)
+        alert('{{ $error }}');
+    @endforeach
+</script>
 @endsection
