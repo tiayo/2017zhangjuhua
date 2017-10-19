@@ -317,6 +317,9 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     line-height: 30px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 .index ul .demo1 .goods2 {
     float: left;
@@ -341,6 +344,9 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     line-height: 30px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 .index .ulon {
     display: block;
