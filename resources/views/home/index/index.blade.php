@@ -30,8 +30,10 @@
             <li class="demo1 clearfix">
                 @foreach($commodity_1 as $commodity)
                     <div class="goods1">
-                        <img src="{{ $commodity['image_0'] }}"/>
-                        <span class="goods1-name">{{ $commodity['name'] }}</span>
+                        <a href="{{ route('home.commodity_view', ['commodity_id' => $commodity['id']]) }}">
+                            <img src="{{ $commodity['image_0'] }}"/>
+                            <span class="goods1-name">{{ $commodity['name'] }}</span>
+                        </a>
                     </div>
                 @endforeach
             </li>
@@ -40,8 +42,10 @@
             <li class="demo1 clearfix">
                 @foreach($commodity_2 as $commodity)
                     <div class="goods1">
-                        <img src="{{ $commodity['image_0'] }}"/>
-                        <span class="goods1-name">{{ $commodity['name'] }}</span>
+                        <a href="{{ route('home.commodity_view', ['commodity_id' => $commodity['id']]) }}">
+                            <img src="{{ $commodity['image_0'] }}"/>
+                            <span class="goods1-name">{{ $commodity['name'] }}</span>
+                        </a>
                     </div>
                 @endforeach
             </li>
@@ -50,8 +54,10 @@
             <li class="demo1 clearfix">
                 @foreach($commodity_3 as $commodity)
                     <div class="goods1">
-                        <img src="{{ $commodity['image_0'] }}"/>
-                        <span class="goods1-name">{{ $commodity['name'] }}</span>
+                        <a href="{{ route('home.commodity_view', ['commodity_id' => $commodity['id']]) }}">
+                            <img src="{{ $commodity['image_0'] }}"/>
+                            <span class="goods1-name">{{ $commodity['name'] }}</span>
+                        </a>
                     </div>
                 @endforeach
             </li>
@@ -60,8 +66,10 @@
             <li class="demo1 clearfix">
                 @foreach($commodity_4 as $commodity)
                     <div class="goods1">
-                        <img src="{{ $commodity['image_0'] }}"/>
-                        <span class="goods1-name">{{ $commodity['name'] }}</span>
+                        <a href="{{ route('home.commodity_view', ['commodity_id' => $commodity['id']]) }}">
+                            <img src="{{ $commodity['image_0'] }}"/>
+                            <span class="goods1-name">{{ $commodity['name'] }}</span>
+                        </a>
                     </div>
                 @endforeach
             </li>

@@ -16,6 +16,17 @@ body {
     float: left;
     width: 100%;
 }
+.search {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: url(../icon/search-bg.png) no-repeat center;
+    background-size: 100% 45px;
+    text-align: center;
+    line-height: 45px;
+    z-index: 999;
+}
 /*底部导航栏*/
 .nav {
     position: fixed;
@@ -461,33 +472,6 @@ body {
     padding: 46px 0 100px 0;
     background-color: #fff;
 }
-.shopping-cart .batch-delete {
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 45px;
-    background-color: #fff;
-    border-bottom: 1px solid #bfbfbf;
-    color: #999;
-    z-index: 999;
-    line-height: 45px;
-}
-.shopping-cart .batch-delete span {
-    float: left;
-    height: 100%;
-    padding-left: 4%;
-}
-.shopping-cart .batch-delete span em {
-    color: #df1b19;
-    font-weight: bold;
-}
-.shopping-cart .batch-delete strong {
-    float: right;
-    height: 100%;
-    padding: 0 4% 0 7%;
-    background: url(../icon/icon_qingkong.png) no-repeat 5% 45%;
-    background-size: 20%;
-}
 .shopping-cart .delete-mask {
     display: none;
     position: fixed;
@@ -561,12 +545,16 @@ body {
     z-index: 999;
 }
 .shopping-cart .content {
+    overflow: scroll;
+    position: fixed;
+    top: 96px;
+    bottom: 101px;
     width: 100%;
 }
 .shopping-cart .content .list {
     position: relative;
     width: 100%;
-    height: 150px;
+    height: 100px;
     background-color: #fff;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
@@ -574,7 +562,7 @@ body {
 .shopping-cart .content .list .choose {
     float: left;
     width: 10%;
-    height: 150px;
+    height: 100%;
 }
 .shopping-cart .content .list .choose .sel-red1 {
     background: url(../icon/icon_xuanzhong.png) no-repeat center;
@@ -588,29 +576,25 @@ body {
     float: left;
     width: 17px;
     height: 17px;
-    margin: 65px 0 0 40%;
+    margin: 45px 0 0 40%;
     border-radius: 50%;
     background-color: #e7e7e7;
-}
-.shopping-cart .content img {
-    float: left;
-    width: 120px;
-    height: 120px;
-    margin: 12px 3%;
-    border: 1px solid #e7e7e7;
 }
 .shopping-cart .content h2 {
     overflow: hidden;
     float: left;
-    width: 50%;
-    height: 40px;
+    width: 80%;
+    padding: 0 5%;
+    height: 20px;
     margin-top: 12px;
+    line-height: 20px;
     font-size: 14px;
 }
 .shopping-cart .content h3 {
     overflow: hidden;
     float: left;
-    width: 50%;
+    width: 80%;
+    padding: 0 5%;
     height: 35px;
     color: #666;
     font-size: 12px;
@@ -621,16 +605,24 @@ body {
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
     float: left;
-    width: 45%;
-    margin-right: 5%;
+    padding: 0 10px;
 }
 .shopping-cart .content h3 span b {
     font-weight: normal;
 }
+.shopping-cart .content h3 span .num {
+    width: 15px;
+    height: 20px;
+    padding: 0 5px;
+    outline: none;
+    border: 0;
+    line-height: 20px;
+}
 .shopping-cart .content h4 {
     float: left;
-    width: 50%;
-    height: 27px;
+    width: 20%;
+    padding: 0 8%;
+    height: 20px;
 }
 .shopping-cart .content h4 .price {
     overflow: hidden;
@@ -638,90 +630,19 @@ body {
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
     float: left;
-    height: 27px;
-    padding-left: 20px;
-    background: url(../icon/icon_jifen.png) no-repeat 0px center;
-    background-size: 15px;
+    height: 20px;
     color: #df1b19;
     font-size: 16px;
     font-weight: bold;
-    line-height: 27px;
-}
-.shopping-cart .content h4 .quantity {
-    float: right;
-    width: 48%;
-    height: 100%;
-}
-.shopping-cart .content h4 .quantity span {
-    float: left;
-    font-size: 16px;
-    text-align: center;
-}
-.shopping-cart .content h4 .quantity .jian {
-    width: 21px;
-    height: 21px;
-    margin: 4px 3px 0 0;
-    background: url(../icon/-.png) no-repeat center;
-    background-size: 100%;
-}
-.shopping-cart .content h4 .quantity .jia {
-    width: 22px;
-    height: 22px;
-    margin: 4px 0 0 3px;
-    background: url(../icon/+.png) no-repeat center;
-    background-size: 100%;
-}
-.shopping-cart .content h4 .quantity input {
-    float: left;
-    width: 30%;
-    height: 24px;
-    margin-top: 4px;
-    border: none;
-    outline: none;
-    background-color: #fff;
-    color: #000;
-    font-weight: bold;
-    text-align: center;
-    line-height: 24px;
-}
-.shopping-cart .none-mask {
-    display: none;
-    position: fixed;
-    top: 82px;
-    bottom: 102px;
-    left: 0;
-    right: 0;
-    background: url(../icon/pic_kong.png) no-repeat center 30%;
-    background-size: 40%;
-}
-.shopping-cart .none-mask span {
-    display: block;
-    margin-top: 60%;
-    color: #999;
-    font-size: 18px;
-    text-align: center;
-}
-.shopping-cart .none-mask a {
-    float: left;
-    width: 50%;
-    height: 45px;
-    margin: 5% 25% 0;
-    box-shadow: 0px 3px rgba(92, 59, 9, 0.2);
-    background-color: #ffda44;
-    border-radius: 20px;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 45px;
+    line-height: 20px;
 }
 .shopping-cart .total-price {
     position: fixed;
-    bottom: 51px;
+    top: 45px;
     width: 100%;
     height: 50px;
     background-color: #fff;
-    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
 }
 .shopping-cart .total-price .all-choose {
     float: left;
@@ -741,7 +662,7 @@ body {
     background-color: #e7e7e7;
 }
 .shopping-cart .total-price .all-price {
-    float: left;
+    float: right;
     width: 55%;
     height: 50px;
     text-align: right;
@@ -766,29 +687,25 @@ body {
     color: #df1b19;
     font-weight: bold;
 }
-.shopping-cart .total-price .settlement {
-    float: left;
-    width: 25%;
+.shopping-cart .settlement {
+    position: fixed;
+    bottom: 51px;
+    width: 100%;
     height: 50px;
-    background-color: #ffda44;
+    background: url(../icon/search-bg.png) no-repeat center;
+    background-size: 100% 100%;
 }
-.shopping-cart .total-price .settlement a {
+.shopping-cart .settlement button {
     float: left;
     width: 100%;
     height: 50px;
     color: #333;
+    outline: none;
+    border: 0;
+    background: none;
     font-weight: bold;
     text-align: center;
     line-height: 50px;
-}
-.shopping-cart .nav a:nth-child(3) {
-    background: url(../icon/gwc2.png) no-repeat center 5px;
-    background-size: 25px;
-    color: #333;
-    font-weight: bold;
-}
-.shopping-cart .nav a:nth-child(3) em {
-    font-weight: normal;
 }
 @media (max-width:320px) {
     .shopping-cart .content img {
@@ -1587,20 +1504,10 @@ body {
 }  
 .goods-details .nav-bottom .join-cart {
     float: left;
-    width: 30%;
+    width: 100%;
     height: 50px;
-    background-color: #FFeb99;
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 50px;
-}
-.goods-details .nav-bottom .exchange-now {
-    float: left;
-    width: 29.99%;
-    height: 50px;
-    background-color: #ffda44;
+    background: url(../icon/search-bg.png) no-repeat center;
+    background-size: 100% 100%;
     color: #333;
     font-size: 16px;
     font-weight: bold;
@@ -1625,37 +1532,19 @@ body {
     background-color: #fff;
 }
 .goods-details .mask .mask-con .mask-title {
-    position: relative;
     width: 100%;
     height: 55px;
     border-bottom: 1px solid #e7e7e7;
 }
-.goods-details .mask .mask-con .mask-title .pic {
-    position: absolute;
-    top: -20px;
-    left: 3%;
-    width: 70px;
-    height: 70px;
-}
-.goods-details .mask .mask-con .mask-title .pic img {
-    float: left;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-}
 .goods-details .mask .mask-con .mask-title h4 {
-    position: absolute;
-    overflow: hidden;
-    white-space: nowrap;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    top: 1px;
-    left: 24%;
+    float: left;
     width: 64%;
-    height: 25px;
-    font-size: 14px;
+    height: 100%;
+    font-size: 18px;
+    padding-left: 10px;
+    font-weight: bold;
     text-align: left;
-    line-height: 25px;
+    line-height: 55px;
 }
 .goods-details .mask .mask-con .mask-title .price {
     position: absolute;
@@ -1722,10 +1611,8 @@ body {
     text-align: center;
 }
 .goods-details .mask .mask-con .mask-content li .type-choose .on {
-    color: #df1b19;
-    border: 1px solid #df1b19;
-    background: url(../icon/icon_guige.png) no-repeat bottom right;
-    background-size: 15px;
+    font-weight: bold;
+    box-shadow: 1px 1px 5px #000;
 }
 .goods-details .mask .mask-con .mask-num {
     position: absolute;
@@ -1735,23 +1622,22 @@ body {
 }
 .goods-details .mask .mask-con .mask-num p {
     float: left;
-    width: 20%;
+    padding: 0 10px;
     height: 45px;
     padding-left: 3%;
     text-align: left;
     line-height: 45px;
 }
 .goods-details .mask .mask-con .mask-num .form {
-    float: right;
-    width: 30%;
+    float: left;
+    width: 10%;
     height: 100%;
     margin-right: 2%;
 }
 .goods-details .mask .mask-con .mask-num .form div {
-    float: right;
+    float: left;
     width: 100%;
-    height: 30px;
-    margin-top: 8%;
+    height: 100%;
 }
 .goods-details .mask .mask-con .mask-num span {
     float: left;
@@ -1761,24 +1647,16 @@ body {
     text-align: center;
     line-height: 27px;
 }
-.goods-details .mask .mask-con .mask-num .jian {
-    background: url(../icon/-.png) 44% 5px no-repeat;
-    background-size: 20px;
-}
-.goods-details .mask .mask-con .mask-num .jia {
-    background: url(../icon/+.png) 65% 5px no-repeat;
-    background-size: 20px;
-}
 .goods-details .mask .mask-con .mask-num input {
     float: left;
-    width: 25%;
-    height: 23px;
-    margin-top: 3px;
+    width: 25px;
+    height: 25px;
     outline: none;
-    border: none;
+    margin-top: 9px;
+    border: 1px solid #999;
     background-color: #fff;
     text-align: center;
-    line-height: 23px;
+    line-height: 25px;
 }
 .goods-details .mask .nav3 {
     position: absolute;
@@ -1786,26 +1664,19 @@ body {
     width: 100%;
     height: 50px;
 }
-.goods-details .mask .nav3 a {
+.goods-details .mask .nav3 button {
     float: left;
     width: 100%;
     height: 50px;
-    background-color: #ffda44;
+    background: url(../icon/search-bg.png) no-repeat center;
+    background-size: 100% 100%;
     color: #333;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
     line-height: 50px;
-}
-@media (max-width:320px) {
-    .goods-details .mask .mask-con .mask-title h4 {
-        left: 27%;
-        width: 60%;
-    }
-    .goods-details .mask .mask-con .mask-title .price {
-        left: 27%;
-        width: 59%;
-    }
+    outline: none;
+    border: 0;
 }
 
 /*选择收货地址*/

@@ -44,7 +44,7 @@ $(document).ready(function(){
             this.bool = true;
         }
     });
-
+    
     // 商品分类页面
     // tab切换
     $(".classification .tab li").click(function() {
@@ -68,7 +68,7 @@ $(document).ready(function(){
     // 内容清浮动
     $(".classification .tabcon li").addClass('clearfix');
     $(".classification .tabcon li a").addClass('clearfix');
-
+    
 
     // 购物车页面
     var gwcSp = $(".shopping-cart .content .list").length;
@@ -132,8 +132,8 @@ $(document).ready(function(){
     var shop = {
         init: function(){
             this.sel();
-            this.add();
-            this.del();
+            // this.add();
+            // this.del(); 
         },
         sel: function(){
             $(".choose em").on("click", function(){
@@ -154,17 +154,16 @@ $(document).ready(function(){
                 var _this = $(this);
                 if(_this.hasClass('sel-red')){
                     _this.removeClass('sel-red'),
-                        $(".choose em").removeClass('sel-red1');
+                    $(".choose em").removeClass('sel-red1');
                     $(".shopping-cart .settlement em").html(0);
                 } else {
                     _this.addClass('sel-red'),
-                        $(".choose em").addClass('sel-red1');
+                    $(".choose em").addClass('sel-red1');
                     var len3 = $(".sel-red1").length;
                     $(".shopping-cart .settlement em").html(len3);
                 };
                 shop.show();
             });
-
             $(".shopping-cart .list .delete").on("click", function() {
                 $(this).siblings('.choose').children().removeClass('sel-red');
                 shop.show();
@@ -177,13 +176,15 @@ $(document).ready(function(){
             var price = 0;
             var num = 0;
             for(var i = 0; i < length; i++){
-                if($(".price").eq(i).parent("h4").siblings('.choose').children('em').hasClass('sel-red1')){
+                if($(".price").eq(i).parent("h4").siblings('.choose').children('em').hasClass('sel-red1')) {
                     price = $(".price").eq(i).data("price");
+                    console.log(price);
                     num = $(".num").eq(i).val();
+                    console.log(num);
                     sum = (price * 100 * num + sum * 100)/100;
                 }
             }
-            if(sum <= 0){
+            if(sum <= 0) {
                 sum = "0.00";
             };
             $(".preferential span em").html(sum);
@@ -193,27 +194,27 @@ $(document).ready(function(){
             };
             $(".total em").html(sum);
         },
-        add: function(){
-            $('.jia').on("click", function(){
-                var _this = $(this);
-                var num = _this.siblings('input').val();
-                num = parseInt(num) + 1;
-                _this.siblings('input').val(num);
-                shop.show();
-            });
-        },
-        del: function(){
-            $('.jian').on("click", function(){
-                var _this = $(this);
-                var num = _this.siblings('input').val();
-                num = parseInt(num) - 1;
-                if(num == 0){
-                    num = 1;
-                };
-                _this.siblings('input').val(num);
-                shop.show();
-            });
-        }
+        // add: function(){
+        //     $('.jia').on("click", function(){
+        //         var _this = $(this);
+        //         var num = _this.siblings('input').val();
+        //         num = parseInt(num) + 1;
+        //         _this.siblings('input').val(num);
+        //         shop.show();
+        //     });
+        // },
+        // del: function(){
+        //     $('.jian').on("click", function(){
+        //         var _this = $(this);
+        //         var num = _this.siblings('input').val();
+        //         num = parseInt(num) - 1;
+        //         if(num == 0){
+        //             num = 1;
+        //         };
+        //         _this.siblings('input').val(num);
+        //         shop.show();
+        //     });
+        // }
     }
     shop.init();
 
@@ -369,29 +370,29 @@ $(document).ready(function(){
         $(this).children('em').addClass('default').parent().parent().parent().siblings().children('h3').children('span').children('strong').html("设为默认");
         $(this).children('strong').html("默认地址");
     });
-
+    
     // 添加新地址
-    $(".add-address .address-info li:nth-last-child(1) h1 span").on("click", function() {
-        if(this.bool == true || this.bool == undefined) {
-            $(".add-address .address-info li:nth-last-child(1) h1 span em").css({
-                "float":"right",
-                "background":"#fff"
-            });
-            $(".add-address .address-info li:nth-last-child(1) h1 span").css({
-                "background":"#ffda44"
-            });
-            this.bool = false;
-        } else {
-            $(".add-address .address-info li:nth-last-child(1) h1 span em").css({
-                "float":"left",
-                "background":"#fff"
-            });
-            $(".add-address .address-info li:nth-last-child(1) h1 span").css({
-                "background":"#fff"
-            });
-            this.bool = true;
-        }
-    });
+    // $(".add-address .address-info li:nth-last-child(1) h1 span").on("click", function() {
+    //     if(this.bool == true || this.bool == undefined) {
+    //         $(".add-address .address-info li:nth-last-child(1) h1 span em").css({
+    //             "float":"right",
+    //             "background":"#fff"
+    //         });
+    //         $(".add-address .address-info li:nth-last-child(1) h1 span").css({
+    //             "background":"#ffda44"
+    //         });
+    //         this.bool = false;
+    //     } else {
+    //         $(".add-address .address-info li:nth-last-child(1) h1 span em").css({
+    //             "float":"left",
+    //             "background":"#fff"
+    //         });
+    //         $(".add-address .address-info li:nth-last-child(1) h1 span").css({
+    //             "background":"#fff"
+    //         });
+    //         this.bool = true;
+    //     }
+    // });
     //手机号码正则
     $("#psCustomerTel").blur(function() {
         var regs = /^0?1[3|4|5|7|8|9][0-9]\d{8}$/;
@@ -443,8 +444,8 @@ $(document).ready(function(){
         });
     });
 
-
-
+    
+    
     // if($(".content").length == 1) {
     //     var numOf = parseInt($(".goods-settlement .info .num-of span").text());
     //     $(".goods-settlement .goods-num .num").val(numOf);
@@ -534,7 +535,7 @@ $(document).ready(function(){
             }, 1000);
         }
     });
-
+    
     // 我的奖品
     $(".my-prize .prize-title li").click(function() {
         $(this).addClass('on1').siblings().removeClass('on1');
