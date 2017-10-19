@@ -7,7 +7,7 @@
     <div class="pc">
         <div class="info">
             <img src="{{ Auth::user()['avatar'] }}" class="portrait" />
-            <a href="{{ route('home.person') }}" class="more"></a>
+            <a href="{{ route('home.person_update') }}" class="more"></a>
         </div>
         <div class="title">我的订单</div>
         <div class="content" id="content">

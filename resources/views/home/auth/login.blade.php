@@ -69,4 +69,9 @@
     </form>
     <a href="{{ route('home.register') }}" class="register">还没有账号？</a>
 </div>
+    <script>
+        @foreach($errors->all() as $error)
+            alert('{{ $error }}');
+        @endforeach
+    </script>
 @endsection
