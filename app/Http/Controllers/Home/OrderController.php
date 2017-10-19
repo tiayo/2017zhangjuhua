@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Car;
 use App\Http\Controllers\Controller;
 use App\Services\Home\CarService;
 use App\Services\Home\OrderService;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Exception;
 
 class OrderController extends Controller
 {
@@ -25,7 +25,7 @@ class OrderController extends Controller
     {
         try{
             $order = $this->order->first($order_id);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             return response($exception->getMessage());
         }
 
@@ -37,6 +37,10 @@ class OrderController extends Controller
     public function addView()
     {
         $cars = $this->car->get();
+
+        if (count($cars) == 0) {
+            return redirect()->back();
+        }
 
         $user = Auth::user();
 
@@ -51,8 +55,11 @@ class OrderController extends Controller
 
     public function addPost()
     {
+        //更新地址
+        $post = $this->addressPost();
+
         try{
-            $this->order->add();
+            $this->order->add($post);
         } catch (\Exception $exception) {
             return response($exception->getMessage());
         }
@@ -81,6 +88,6 @@ class OrderController extends Controller
             'address' => $this->request->get('address'),
         ]);
 
-        return redirect()->route('home.order_add');
+        return $this->request->all();
     }
 }

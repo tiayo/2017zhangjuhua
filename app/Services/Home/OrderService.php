@@ -23,18 +23,16 @@ class OrderService
         $this->commodity = $commodity;
     }
 
-    public function add()
+    public function add($post)
     {
-        throw_if(empty(Auth::user()['address']) || empty(Auth::user()['phone']), Exception::class, '您没有地址和电话！');
-
         //获取当前用户购物车所有商品
         $cars = $this->car->get();
 
         //构造订单
         $order['user_id'] = Auth::id();
-        $order['name'] = Auth::user()['name'];
-        $order['address'] = Auth::user()['address'];
-        $order['phone'] = Auth::user()['phone'];
+        $order['name'] = $post['name'] ?? Auth::user()['name'];
+        $order['address'] = $post['address'] ?? Auth::user()['address'];
+        $order['phone'] = $post['phone'] ?? Auth::user()['phone'];
         $order['price'] = $this->car->total_price($cars);
         $order['type'] = 1;
         $order['status'] = 1; //测试：默认为已付款

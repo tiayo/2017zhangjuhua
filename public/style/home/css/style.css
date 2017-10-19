@@ -2555,146 +2555,79 @@ body {
     padding-bottom: 46px;
     background-color: #fff;
 }
-.goods-settlement .address {
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 80px;
-    margin-bottom: 10px;
-    background: #fff url(../icon/address_bottom.png) no-repeat bottom;
-    background-size: 100%;
-    border-bottom: 1px solid #e7e7e7;
-}
-.goods-settlement .address h1 {
-    float: left;
-    overflow: hidden;
-    white-space: nowrap;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    width: 80%;
-    padding-left: 10%;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    line-height: 25px;
-}
-.goods-settlement .address h1 span,
-.goods-settlement .address h1 em {
-    display: inline-block;
-    height: 25px;
-    padding: 0 2%;
-    text-align: center;
-    line-height: 25px;
-}
-.goods-settlement .address h2 {
-    float: left;
-    overflow: hidden;
-    white-space: nowrap;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    width: 80%;
-    padding-left: 10%;
-    background: url(../icon/address2.png) no-repeat 4% 50%;
-    background-size: 20px;
-    color: #666;
-    font-size: 14px;
-    text-align: left;
-    line-height: 25px;
-}
-.goods-settlement .address h3 {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 10%;
-    height: 94%;
-    background: url(../icon/icon_arrow_right.png) no-repeat center;
-    background-size: 15px;
-}
 .goods-settlement .content {
-    float: left;
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    bottom: 45px;
     width: 100%;
 }
 .goods-settlement .content .info {
     position: relative;
-    float: left;
-    width: 96%;
-    padding: 2%;
-    background: #fff;
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
 }
-.goods-settlement .content .info .pic {
-    float: left;
-    width: 85px;
-    height: 85px;
-}
-.goods-settlement .content .info .pic img {
-    float: left;
-    width: 100%;
-    height: 100%;
-}
-.goods-settlement .content .info .name {
-    position: absolute;
+.goods-settlement .content h2 {
     overflow: hidden;
-    top: 5px;
-    left: 27%;
-    width: 56%;
-    height: 50px;
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    line-height: 25px;
-}
-.goods-settlement .content .info .num-of {
-    position: absolute;
-    top: 45px;
-    right: 1%;
-    width: 10%;
-    color: #333;
-    font-weight: bold;
+    float: left;
+    width: 90%;
+    padding: 0 5%;
+    height: 20px;
+    margin-top: 12px;
+    line-height: 20px;
     font-size: 14px;
-    text-align: left;
 }
-.goods-settlement .content .info .num-of span {
-    margin-left: 7%;
-}
-.goods-settlement .content .info .pay-for {
-    position: absolute;
-    top: 70px;
-    left: 26%;
-    width: 50%;
-    height: 25px;
-    padding-left: 7%;
-    background: url(../icon/icon_jifen.png) no-repeat 2% 5px;
-    background-size: 15px;
-    color: #df1b19;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: left;
-    line-height: 25px;
-}
-.goods-settlement .content .info .type {
-    position: absolute;
+.goods-settlement .content h3 {
     overflow: hidden;
-    top: 55px;
-    left: 27%;
-    width: 57%;
-    height: 16px;
-}
-.goods-settlement .content .info .type h1 {
     float: left;
-    overflow: hidden;
-    margin-right: 10px;
-    background: none;
+    width: 90%;
+    padding: 0 5%;
+    height: 35px;
     color: #666;
     font-size: 12px;
 }
-/*.goods-settlement .content .goods-num,*/
-.goods-settlement .content .courier
-/*.goods-settlement .content .balance*/
- {
+.goods-settlement .content h3 span {
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: left;
+    padding: 0 10px;
+}
+.goods-settlement .content h3 span b {
+    font-weight: normal;
+}
+.goods-settlement .content h3 span .num {
+    width: 15px;
+    height: 20px;
+    padding: 0 5px;
+    outline: none;
+    border: 0;
+    line-height: 20px;
+}
+.goods-settlement .content h4 {
+    float: left;
+    padding: 0 8%;
+    height: 20px;
+    color: #f00;
+}
+.goods-settlement .content h4 .price {
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: right;
+    height: 20px;
+    color: #df1b19;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+}
+.goods-settlement .content .courier,
+.goods-settlement .content .address-info {
     float: left;
     width: 94%;
     height: 45px;
@@ -2704,54 +2637,38 @@ body {
     color: #999;
     line-height: 45px;
 }
-/*.goods-settlement .content .goods-num form {
+.goods-settlement .content .address-info input {
     float: right;
-    width: 80px;
+    width: 70%;
     height: 100%;
-}
-.goods-settlement .content .goods-num div {
-    float: right;
-    width: 100%;
-    height: 30px;
-    margin-top: 8%;
-}
-.goods-settlement .content .goods-num span {
-    float: left;
-    width: 27px;
-    height: 27px;
-    font-size: 16px;
-    text-align: center;
-    line-height: 27px;
-}
-.goods-settlement .content .goods-num .jian {
-    background: url(../icon/-.png) 44% 5px no-repeat;
-    background-size: 20px;
-}
-.goods-settlement .content .goods-num .jia {
-    float: right;
-    background: url(../icon/+.png) 65% 5px no-repeat;
-    background-size: 20px;
-}
-.goods-settlement .content .goods-num input {
-    float: left;
-    width: 25px;
-    height: 25px;
-    margin-top: 3px;
     outline: none;
-    border: none;
-    background-color: #fff;
-    text-align: center;
-    line-height: 25px;
-}*/
+    border: 0;
+    text-align: right;
+}
 .goods-settlement .content .courier em {
     float: right;
     color: #333;
 }
-/*.goods-settlement .content .balance em {
+.goods-settlement .content h1 {
+    float: left;
+    width: 94%;
+    height: 45px;
+    padding: 0 3%;
+    background-color: #fff;
+    border-bottom: 1px solid #e7e7e7;
+    color: #999;
+    line-height: 45px;
+}
+.goods-settlement .content h1 span {
     float: right;
+    height: 100%;
+    margin-left: 2%;
+    padding-left: 7%;
     color: #df1b19;
+    font-size: 15px;
     font-weight: bold;
-}*/
+    text-align: right;
+}
 .goods-settlement .nav-bottom {
     position: fixed;
     bottom: 0;
@@ -2761,134 +2678,20 @@ body {
     background-color: #fff;
     z-index: 999;
 }
-.goods-settlement .nav-bottom h1 {
-    float: left;
-    width: 68%;
-    height: 45px;
-    padding-right: 2%;
-    color: #666;
-    text-align: right;
-    line-height: 45px;
-}
-.goods-settlement .nav-bottom h1 span {
+.goods-settlement .nav-bottom button {
     float: right;
-    height: 100%;
-    margin-left: 2%;
-    padding-left: 7%;
-    background: url(../icon/icon_jifen.png) no-repeat 0 50%;
-    background-size: 15px;
-    color: #df1b19;
-    font-size: 15px;
-    font-weight: bold;
-    text-align: right;
-}
-.goods-settlement .nav-bottom a {
-    float: right;
-    width: 30%;
+    width: 100%;
     height: 45px;
-    background-color: #ffda44;
+    background: url(../icon/search-bg.png) no-repeat center;
+    background-size: 100%;
     color: #333;
     font-size: 15px;
     font-weight: bold;
     text-align: center;
     line-height: 45px;
+    outline: none;
+    border: 0;
 }
-/*.goods-settlement .mask {
-    display: none;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-}
-.goods-settlement .mask .payment {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 243px;
-    background-color: #fff;
-}
-.goods-settlement .mask .payment .payment-details {
-    width: 85%;
-    height: 50px;
-    padding-left: 15%;
-    border-bottom: 1px solid #d7d7d7;
-    color: #333;
-    font-size: 20px;
-    text-align: center;
-    line-height: 50px;
-}
-.goods-settlement .mask .payment .payment-details em {
-    float: right;
-    width: 15%;
-    height: 100%;
-    background: url(../icon/close.png) no-repeat center;
-    background-size: 70%;
-}
-.goods-settlement .mask .payment .payment-way,
-.goods-settlement .mask .payment .payment-amount {
-    width: 90%;
-    height: 45px;
-    padding: 0 5%;
-    border-bottom: 1px solid #d7d7d7;
-    color: #333;
-    font-size: 16px;
-    line-height: 45px;
-}
-.goods-settlement .mask .payment .payment-way span {
-    float: right;
-    height: 100%;
-}
-.goods-settlement .mask .payment .payment-amount span {
-    float: right;
-    height: 100%;
-    padding-left: 30px;
-    background: url(../icon/icon_jifen.png) no-repeat 5px center;
-    background-size: 20px;
-    color: #df1b19;
-    font-size: 18px;
-    font-weight: bold;
-}
-.goods-settlement .mask .payment li:nth-last-child(1) {
-    width: 100%;
-    height: 74px;
-    padding-top: 7%;
-}
-.goods-settlement .mask .payment li:nth-last-child(1) a {
-    display: block;
-    width: 50%;
-    height: 45px;
-    margin: 0 auto;
-    background-color: #ffda44;
-    border-radius: 20px;
-    box-shadow: 0px 3px rgba(92, 59, 9, 0.2);
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 45px;
-}*/
-/*@media (max-width:320px) {
-    .goods-settlement .info .name {
-        width: 50%;
-        left: 30%;
-    }
-    .goods-settlement .info .num-of {
-        right: 3%;
-    }
-    .goods-settlement .info .pay-for {
-        width: 45%;
-        left: 29%;
-    }
-    .goods-settlement .info .type {
-        overflow: hidden;
-        width: 50%;
-        left: 30%;
-    }
-}*/
 
 /*支付成功*/
 .payfor-success {
