@@ -10,7 +10,6 @@ Author: ThemeBucket
 @import url('../fonts/css/font-awesome.min.css');
 
 body {
-    background: #700101;
     font-family: 'Open Sans', sans-serif;
     color: #7a7676;
     line-height: 20px;
@@ -24,7 +23,7 @@ input, select, textarea {
 }
 
 a {
-    color: #65CEA7;
+    color: #666;
 }
 
 a:focus, a:active, a:hover {
@@ -290,7 +289,7 @@ hr {
 }
 
 .custom-nav > li > a {
-    color: #fff;
+    color: #000;
     padding: 12px 20px;
     border-radius: 0;
     -webkit-border-radius: 0;
@@ -304,46 +303,15 @@ hr {
     -webkit-border-radius: 0;
 }
 
-.custom-nav > li.menu-list > a {
-    background: transparent url(../images/plus-white.png) no-repeat 93% center;
-}
-
-.custom-nav > li.menu-list > a:hover {
-    background-color: #8a0202;
-    background-image: url(../images/plus.png);
-}
-
-.custom-nav > li.nav-active > a {
-    background-color: #8a0202;
-    background-image: url(../images/minus.png);
-    color: #fff;
-}
-
 .custom-nav > li.nav-active > ul{
     display: block;
-}
-
-.custom-nav > li.nav-active > a:hover {
-    background-image: url(../images/minus.png);
 }
 
 .custom-nav > li.active > a,
 .custom-nav > li.active > a:hover,
 .custom-nav > li.active > a:focus {
-    background-color: #8a0202;
-    color: #fff;
-}
-
-.custom-nav > li.menu-list.active > a {
-    background-image: url(../images/plus.png);
-}
-
-.custom-nav > li.nav-active.active > a {
-    background-image: url(../images/minus.png);
-}
-
-.custom-nav > li.nav-active.active > a:hover {
-    background-image: url(../images/minus.png);
+    background-color: #cccccc;
+    color: #666;
 }
 
 .custom-nav li .fa {
@@ -359,11 +327,10 @@ hr {
     display: none;
     margin: 0;
     padding: 0;
-    background: #8a0202;
 }
 
 .custom-nav .sub-menu-list > li > a {
-    color: #fff;
+    color: #000;
     font-size: 13px;
     display: block;
     padding: 10px 5px 10px 50px;
@@ -377,7 +344,7 @@ hr {
 .custom-nav .sub-menu-list > li > a:focus {
     text-decoration: none;
     color: #fff;
-    background: #580000;
+    background: #999999;
 }
 
 .custom-nav .sub-menu-list > li .fa {
@@ -391,7 +358,7 @@ hr {
 
 .custom-nav .sub-menu-list > li.active > a {
     color: #fff;
-    background-color: #580000;
+    background-color: #999999;
 }
 
 .custom-nav .sub-menu-list ul {
@@ -692,7 +659,7 @@ h5.left-nav-title {
 }
 
 .notification-menu .dropdown-menu li a:hover {
-    background: #580000;
+    background: #999999;
     color: #fff;
 }
 
@@ -845,8 +812,6 @@ h5.left-nav-title {
     left: 0;
     width: 240px;
     z-index: 100;
-    background: #700101;
-
 }
 
 .sticky-header .left-side {
@@ -861,9 +826,6 @@ h5.left-nav-title {
     z-index: 100;
 }
 
-.sticky-header .main-content {
-    padding-top: 50px;
-}
 
 .sticky-header .menu-right {
     margin-right: 255px;
@@ -2970,14 +2932,14 @@ div.tagsinput span.tag a {
 .pricing-head {
     position: relative;
     height: 170px;
-    color: #580000;
+    color: #999999;
 }
 
 .pricing-head h1 {
     font-size: 24px;
     font-weight: 300;
     padding-top: 30px;
-    color: #580000;
+    color: #999999;
     text-transform: uppercase;
 }
 
@@ -3106,7 +3068,7 @@ div.tagsinput span.tag a {
 .corporate-id {
     font-weight: bold;
     font-size: 16px;
-    color: #580000;
+    color: #999999;
     margin-top: 5px;
     text-transform: uppercase;
 }
@@ -3117,7 +3079,7 @@ div.tagsinput span.tag a {
 }
 
 .table-invoice thead {
-    background: #580000;
+    background: #999999;
     color: #fff;
 
 }
@@ -3125,7 +3087,7 @@ div.tagsinput span.tag a {
 .table-invoice th {
     border-bottom: none !important;
     padding: 20px 10px !important;
-    border-color: #580000 !important;
+    border-color: #999999 !important;
 }
 
 .table-invoice th:first-child, .table-invoice td:first-child {
@@ -3137,14 +3099,14 @@ div.tagsinput span.tag a {
 }
 
 .table-invoice h4 {
-    color: #580000;
+    color: #999999;
     font-size: 14px;
     font-weight: bold;
     margin: 0 0 5px 0;
 }
 
 .table-invoice strong {
-    color: #580000;
+    color: #999999;
 }
 
 .payment-method p {
@@ -3525,7 +3487,7 @@ h3.timeline-title {
 }
 
 .btn-post:hover {
-    background: #580000;
+    background: #999999;
     color:#fff
 }
 
@@ -3614,7 +3576,7 @@ ul.p-info .desk {
 }
 
 .p-states h3{
-    color: #580000;
+    color: #999999;
     font-size: 25px;
     margin: 10px 0 0 0;
 }
@@ -3660,7 +3622,7 @@ ul.activity-list .activity-desk {
 }
 
 ul.activity-list .activity-desk h5 {
-    color: #580000;
+    color: #999999;
 }
 
 ul.activity-list .activity-desk h5 a {

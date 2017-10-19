@@ -4,11 +4,7 @@
 
 @section('body')
     <div class="index clearfix">
-        <div class="search">
-            <a href="{{ route('home.category_list') }}" class="fenlei"></a>
-            <a href="{{ route('home.search') }}" class="search-input"><input type="text" placeholder="搜索礼品"/></a>
-            <a href="{{ route('home.car') }}" class="shopping-cartt"><em>{{ $car_count }}</em></a>
-        </div>
+        <div class="search">{{ config('site.title') }}</div>
         <div class="swiper-container index-bigpic clearfix">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -25,39 +21,56 @@
             <div class="swiper-pagination"></div>
         </div>
         <div class="nav-top clearfix">
-            <a href="{{ route('home.category_group', ['id' => 1]) }}">精选产品</a>
-            <a href="{{ route('home.category_group', ['id' => 2]) }}">超值专区</a>
-            <a href="{{ route('home.category_group', ['id' => 3]) }}">大牌专区</a>
-            <a href="{{ route('home.category_group', ['id' => 4]) }}">折扣专区</a>
+            <a href="#" class="on">精选产品</a>
+            <a href="#">超值专区</a>
+            <a href="#">大牌专区</a>
+            <a href="#">折扣专区</a>
         </div>
-        <div class="goods">
-            <b class="hot-exchange clearfix" style="width: 100%;padding-left: 1em;">今日推荐</b>
-            <ul class="goods-con clearfix">
-                @foreach($recommend_today as $commodity)
-                    <li>
-                        <a href="{{ route('home.commodity_view', ['id' => $commodity['id']]) }}">
-                            <h3>
-                                <img src="{{ $commodity['image_0'] }}" height="750" width="750"/>
-                            </h3>
-                            <h2>{{ $commodity['name'] }}</h2>
-                            <strong class="price clearfix">
-                                <h4>{{ $commodity['price'] }}</h4>
-                                <!-- <h5><em>100</em>.00</h5> -->
-                            </strong>
-                        </a>
-                    </li>
+        <ul class="xs ulon">
+            <li class="demo1 clearfix">
+                @foreach($commodity_1 as $commodity)
+                    <div class="goods1">
+                        <img src="{{ $commodity['image_0'] }}"/>
+                        <span class="goods1-name">{{ $commodity['name'] }}</span>
+                    </div>
                 @endforeach
-            </ul>
-        </div>
+            </li>
+        </ul>
+        <ul class="rx">
+            <li class="demo1 clearfix">
+                @foreach($commodity_2 as $commodity)
+                    <div class="goods1">
+                        <img src="{{ $commodity['image_0'] }}"/>
+                        <span class="goods1-name">{{ $commodity['name'] }}</span>
+                    </div>
+                @endforeach
+            </li>
+        </ul>
+        <ul class="cn">
+            <li class="demo1 clearfix">
+                @foreach($commodity_3 as $commodity)
+                    <div class="goods1">
+                        <img src="{{ $commodity['image_0'] }}"/>
+                        <span class="goods1-name">{{ $commodity['name'] }}</span>
+                    </div>
+                @endforeach
+            </li>
+        </ul>
+        <ul class="jp">
+            <li class="demo1 clearfix">
+                @foreach($commodity_4 as $commodity)
+                    <div class="goods1">
+                        <img src="{{ $commodity['image_0'] }}"/>
+                        <span class="goods1-name">{{ $commodity['name'] }}</span>
+                    </div>
+                @endforeach
+            </li>
+        </ul>
         <div class="copyright">
             <h1>© {{ config('site.title') }} 版权所有</h1>
-            <h2>李艺芳提供技术支持</h2>
         </div>
-        <div class="nav clearfix">
-            @include('home.layouts.sidebar')
-        </div>
+        @include('home.layouts.nav')
     </div>
-    <em class="return-top">顶部</em>
     <script type="text/javascript">
         var mySwiper = new Swiper ('.swiper-container', {
             direction: 'horizontal',
@@ -72,6 +85,11 @@
             loop: true,
             autoplay: 3000,
             autoplayDisableOnInteraction : false,
+        });
+        $(".index .nav-top a").click(function() {
+            $(".index .nav-top a").removeClass('on');
+            $(this).addClass('on');
+            $(".index ul").hide().eq($(".index .nav-top a").index(this)).show();
         });
     </script>
 @endsection

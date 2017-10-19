@@ -20,15 +20,17 @@ class IndexController extends Controller
 
     public function index()
     {
-        //今日推荐
-        $recommend_today = $this->index->getByType(0, 10);
-
-        //购物车数量
-        $car_count = $this->car->count();
+        //获取商品
+        $commodity_1 = $this->index->getByType(1, 10);
+        $commodity_2 = $this->index->getByType(2, 10);
+        $commodity_3 = $this->index->getByType(3, 10);
+        $commodity_4 = $this->index->getByType(4, 10);
 
         return view('home.index.index', [
-            'recommend_today' => $recommend_today,
-            'car_count' => $car_count,
+            'commodity_1' => $commodity_1,
+            'commodity_2' => $commodity_2,
+            'commodity_3' => $commodity_3,
+            'commodity_4' => $commodity_4,
         ]);
     }
 

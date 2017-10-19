@@ -36,7 +36,7 @@ class OrderController extends Controller
 
     public function addView()
     {
-        $cars = $this->car->getAvalible();
+        $cars = $this->car->get();
 
         $user = Auth::user();
 

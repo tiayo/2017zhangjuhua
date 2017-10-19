@@ -17,7 +17,7 @@
         <div class="col-sm-12">
             <section class="panel">
                 <header class="panel-heading">
-                    最新订单
+                    我的花店
                     <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                             <a href="javascript:;" class="fa fa-times"></a>
@@ -25,78 +25,35 @@
                 </header>
                 <div class="panel-body">
                     <section id="unseen">
-                        <table class="table table-bordered table-striped table-condensed">
+                        <table class="table table-bordered">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>用户</th>
-                                <th>商品</th>
-                                <th>地址</th>
-                                <th>电话</th>
+                                <th>分类</th>
+                                <th>名称</th>
                                 <th>价格</th>
-                                <th>寄送方式</th>
-                                <th>运送编号</th>
-                                <th>订单状态</th>
+                                <th>库存</th>
+                                <th>计量单位</th>
+                                <th>状态</th>
+                                <th>分组</th>
                                 <th>更新时间</th>
-                                <th>创建时间</th>
                             </tr>
                             </thead>
 
                             <tbody id="target">
-                            @foreach($orders as $list)
+                            @foreach($lists as $list)
                                 <tr>
                                     <td>{{ $list['id'] }}</td>
-                                    <td>{{ $list->user->name }}</td>
-                                    <td>
-                                        @foreach($list->orderDetail as $list_detail)
-                                            {{ $list_detail->commodity->name }} <br>
-                                        @endforeach
-                                    </td>
-                                    <td>{{ $list['address'] }}</td>
-                                    <td>{{ $list['phone'] }}</td>
-                                    <td>￥{{ $list['price'] }}</td>
-                                    <td>{{ config('site.order_type')[$list['type']] }}</td>
-                                    <td>{{ $list['tracking'] }}</td>
-                                    <td style="color: red">
-                                        {{ config('site.order_status')[$list['status']] }}
-                                    </td>
+                                    <td>{{ $list->category->name }}</td>
+                                    <td>{{ $list['name'] }}</td>
+                                    <td>{{ $list['price'] }}</td>
+                                    <td>{{ $list['stock'] }}</td>
+                                    <td>{{ $list['unit'] }}</td>
+                                    <td>{{ config('site.commodity_status')[$list['status']] }}</td>
+                                    <td>{{ config('site.commodity_type')[$list['type']] }}</td>
                                     <td>{{ $list['updated_at'] }}</td>
-                                    <td>{{ $list['created_at'] }}</td>
                                 </tr>
                             @endforeach
-                            </tbody>
-                        </table>
-                    </section>
-                </div>
-            </section>
-            <section class="panel">
-                <header class="panel-heading">
-                    最新会员
-                    <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
-                            <a href="javascript:;" class="fa fa-times"></a>
-                         </span>
-                </header>
-                <div class="panel-body">
-                    <section id="unseen">
-                        <table class="table table-bordered table-striped table-condensed">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>姓名</th>
-                                <th>email</th>
-                                <th>注册时间</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($lists as $list)
-                                    <tr>
-                                        <td>{{ $list['id'] }}</td>
-                                        <td>{{ $list['name'] }}</td>
-                                        <td>{{ $list['email'] }}</td>
-                                        <td>{{ $list['created_at'] }}</td>
-                                    </tr>
-                                @endforeach
                             </tbody>
                         </table>
                     </section>

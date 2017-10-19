@@ -17,7 +17,7 @@
     </div>
     <div class="delete-prompt">您未选中任何商品</div>
     <div class="content">
-        <form id="car_post_form" method="post" action="{{ route('home.car_update') }}">
+        <form id="car_post_form" method="post" action="{{ route('home.order_add') }}">
             {{ csrf_field() }}
             @foreach($lists as $list)
                 @php
