@@ -28,7 +28,6 @@ class ListController extends Controller
      */
     public function categoryList()
     {
-
         return view('home.list.category', [
             'parents' => $this->category->getParent()
         ]);

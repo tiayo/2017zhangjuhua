@@ -16,9 +16,11 @@
             @foreach($parents as $parent)
                 <li>
                     @foreach($index->getCategoryChildren($parent['id']) as $children)
-                        <a class="tabcon-list" href="{{ route('home.category_view', ['id' => $children['id']]) }}">
-                            {{ $children['name'] }}
-                        </a>
+                        @foreach($children->commodity ?? [] as $commodity)
+                            <a class="tabcon-list" href="{{ route('home.commodity_view', ['id' => $commodity['id']]) }}">
+                                {{ $commodity['name'] }}
+                            </a>
+                        @endforeach
                     @endforeach
                 </li>
             @endforeach
