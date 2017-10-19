@@ -4,105 +4,60 @@
 
 @section('style')
     <style type="text/css">
-        .login {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        .login{
+            margin-top: 1em;
         }
-        .login #logo img {
-            width: 50%;
-            margin: 5% 25% 0 25%;
-        }
-        .login .title {
+        .register{
             width: 100%;
-            height: 95px;
-            color: #000;
-            font-size: 16px;
-            letter-spacing: 10px;
-            text-indent: 10px;
+            float: left;
             text-align: center;
-            line-height: 95px;
         }
-        .login #login-dialog {
-            width: 74%;
-            margin: 0 auto 20px;
-            background-color: #fff;
+        #login-dialog{
+            width: 100%;
+            float: left;
         }
-        .login #user {
-            height: 46px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
+        #user{
+            width: 80%;
+            float: left;
+            margin-left: 10%;
         }
-        .login #password {
-            height: 46px;
-            border: 1px solid #ddd;
-        }
-        .login #user input,
-        .login #password input {
+        input{
+            width: 70%;
             float: right;
-            width: 95%;
-            height: 26px;
-            margin-top: 10px;
-            line-height: 25px;
-            outline: none;
-            border: 0;
+            height: 0.5em;
+            padding: 1em;
+            border: 1px solid #ccc;
+            margin-bottom: 1em;
         }
-        .login #user input::-webkit-input-placeholder,
-        .login #password input::-webkit-input-placeholder {
-            color: #999;
+        lable{
+            width: 30%;
+            height: 2.5em;
+            line-height:2.5em;
         }
-        .login #login-button {
+        #login-button{
+            width: 60%;
             float: left;
-            width: 74%;
-            height: 45px;
-            margin: 0 13% 10px;
-            background-color: #ffda44;
-            color: #fff;
-            font-size: 16px;
-            letter-spacing: 10px;
-            text-indent: 10px;
-            text-align: center;
-            line-height: 45px;
-            border: 0;
-        }
-        .login #registration-button {
-            float: left;
-            width: 74%;
-            height: 45px;
-            margin: 0 13% 10px;
-            background-color: #fff;
-            box-shadow: 1px 1px #ffda44 inset,
-            -1px -1px #ffda44 inset;
-            color: #ffda44;
-            font-size: 16px;
-            letter-spacing: 10px;
-            text-indent: 10px;
-            text-align: center;
-            line-height: 45px;
-            border: 0;
-        }
-        .login .error {
-            height: 30px;
-            color: #f00;
-            line-height: 30px;
+            margin-left: 20%;
+            background: #ccc;
+            border: 1px solid #333;
+            height: 2em;
+            line-height: 2em;
+            margin-bottom: 1em;
         }
     </style>
 @endsection
 
 @section('body')
 <div class="login">
-    <div class="title">
-        欢迎登录
-    </div>
     <form action="{{ route('home.login') }}" method="post">
         {{ csrf_field() }}
         <div id="login-dialog">
             <div id="user">
+                <lable>账号：</lable>
                 <input type="email" name="email" placeholder="请输入登录邮箱"/>
             </div>
-            <div id="password">
+            <div id="user">
+                <lable>密码：</lable>
                 <input type="password" name="password" placeholder="请输入密码"/>
             </div>
 
@@ -112,6 +67,6 @@
         </div>
         <button type="submit" id="login-button">登录</button>
     </form>
-    <button id="registration-button" onclick="location='{{ route('home.register') }}'">注册</button>
+    <a href="{{ route('home.register') }}" class="register">还没有账号？</a>
 </div>
 @endsection

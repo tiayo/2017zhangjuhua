@@ -15,6 +15,7 @@
         }
         .user-info {
             background-color: #fff;
+            margin-bottom: 1em;
         }
         .user-info li {
             height: 45px;
@@ -50,15 +51,13 @@
             border-radius: 50%;
         }
         .user-info li:nth-child(1) .pic #portrait-file {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
+            float: right;
             height: 100%;
-            padding: 0;
-            opacity: 0;
+            padding-right: 5px;
+            outline: none;
+            border: 0;
+            text-align: right;
+            margin-top: 1em;
         }
         .user-info li:nth-child(1) .pic #user-portrait {
             float: left;
@@ -95,20 +94,22 @@
             border: 0;
             height: 74px;
             padding: 13px 0;
+            width: 70%;
         }
         button {
-            display: block;
-            width: 50%;
-            height: 40px;
-            margin: 20px auto 0px;
-            background-color: #ffda44;
-            border-radius: 40px;
-            color: #333;
-            font-size: 16px;
-            font-weight: bold;
+            width: 60%;
+            float: left;
+            margin-left: 20%;
+            background: #ccc;
+            border: 1px solid #333;
+            height: 2em;
+            line-height: 2em;
+            margin-bottom: 1em;
+        }
+        .back{
+            width: 100%;
+            float: left;
             text-align: center;
-            line-height: 40px;
-            border: 0;
         }
     </style>
 @endsection
@@ -120,7 +121,6 @@
             <li>
                 头像<div class="pic">
                     <input name="avatar" type="file" id="portrait-file" />
-                    <img src="{{ $user['avatar'] }}" id="user-portrait"/>
                 </div>
             </li>
             <li>
@@ -137,4 +137,5 @@
         <button type="submit">保存</button>
     </form>
     <button type="button" onclick="location='{{ route('home.logout') }}'">退出登录</button>
+    <a href="{{ route('home.person') }}" class="back">返回个人中心</a>
 @endsection
