@@ -43,13 +43,8 @@
                         </span>
                     </div>
                 </div>
-                <button class="btn btn-lg btn-login btn-block" type="submit">
-                    <i class="fa fa-check"></i>
-                </button>
+                <button style="width: 40%;margin-left: 30%;color: #666;" class="btn" type="submit">登录</button>
             </form>
-            <div class="registration">
-                帐号须由管理员注册！
-            </div>
         </div>
     </div>
 

@@ -4,7 +4,7 @@ return [
     'administrator' => env('SITE_ADMINISTRATE'),
     'upload_image_size' => 1024,
     'list_num' => env('SITE_LIST_NUM'),
-    'title' => '花店', //网站标题
+    'title' => '张菊花的书店', //网站标题
     'order_status' => [ //订单状态
         0 => '等待支付',
         1 => '等待发货',
