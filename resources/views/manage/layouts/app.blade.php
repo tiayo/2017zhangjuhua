@@ -33,6 +33,7 @@
     <!-- left side start-->
     <div class="left-side sticky-left-side">
         <span href="#" class="btn" data-toggle="dropdown" style="margin: 0.5em 0 -3em 1em;">
+            <img src="{{ Auth::user()['avatar'] }}" width="40px" style="margin-right: 0.5em">
             {{ Auth::guard()->user()['name'] }}
             <a style="margin-left: 1em" href="{{ route('manage.logout') }}">退出登录</a>
         </span>
@@ -50,8 +51,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <!--breadcrumbs start -->
-                    <ul class="breadcrumb panel">
-                        <li><a href="{{ route('manage') }}"><i class="fa fa-home"></i>主页</a></li>
+                    <ul class="breadcrumb panel" style="background:none; box-shadow:none">
+                        您在：
+                        <li><a href="{{ route('manage') }}">主页</a></li>
                         @section('breadcrumb')
 
                         @show
@@ -66,12 +68,6 @@
             @show
         </div>
         <!--body wrapper end-->
-
-        <!--footer section start-->
-        <footer style="bottom: 0;position: fixed;">Copyright © 2015 - {{ date('Y') }} {{ config('site.title') }} All Rights Reserved  <strong>v1.0</strong></footer>
-        <!--footer section end-->
-
-
     </div>
     <!-- main content end-->
 </section>

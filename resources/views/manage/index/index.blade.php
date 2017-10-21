@@ -17,7 +17,7 @@
         <div class="col-sm-12">
             <section class="panel">
                 <header class="panel-heading">
-                    我的花店
+                    {{ config('site.title') }} - 订单
                 </header>
                 <div class="panel-body">
                     <section id="unseen">

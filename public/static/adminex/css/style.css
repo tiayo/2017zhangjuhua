@@ -310,8 +310,8 @@ hr {
 .custom-nav > li.active > a,
 .custom-nav > li.active > a:hover,
 .custom-nav > li.active > a:focus {
-    background-color: #cccccc;
-    color: #666;
+    background: url('../images/icon_04.png') repeat-x;
+    color: #fff;
 }
 
 .custom-nav li .fa {
@@ -343,8 +343,8 @@ hr {
 .custom-nav .sub-menu-list > li > a:active,
 .custom-nav .sub-menu-list > li > a:focus {
     text-decoration: none;
-    color: #fff;
-    background: #999999;
+    color: #666;
+    background: #f1f1f1;
 }
 
 .custom-nav .sub-menu-list > li .fa {
@@ -357,8 +357,8 @@ hr {
 }
 
 .custom-nav .sub-menu-list > li.active > a {
-    color: #fff;
-    background-color: #999999;
+    color: #666;
+    background-color: #f1f1f1;
 }
 
 .custom-nav .sub-menu-list ul {
