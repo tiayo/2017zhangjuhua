@@ -23,10 +23,10 @@
             <div class="swiper-pagination"></div>
         </div>
         <div class="nav-top clearfix">
-            <a href="#" class="on">精选产品</a>
-            <a href="#">超值专区</a>
-            <a href="#">大牌专区</a>
-            <a href="#">折扣专区</a>
+            <a href="#" class="on">精选图书</a>
+            <a href="#">值得一读</a>
+            <a href="#">名家大作</a>
+            <a href="#">折扣图书</a>
         </div>
         <ul class="xs ulon">
             <li class="demo1 clearfix">
