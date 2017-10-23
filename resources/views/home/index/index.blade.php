@@ -4,7 +4,9 @@
 
 @section('body')
     <div class="index clearfix">
-        <div class="search">{{ config('site.title') }}</div>
+        <div class="search">
+            <a href="{{ route('home.search') }}" class="search-input"><input type="text" placeholder="搜书"/></a>
+        </div>
         <div class="swiper-container index-bigpic clearfix">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">

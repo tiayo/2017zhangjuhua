@@ -10,14 +10,13 @@
             bottom: 0;
             left: 0;
             right: 0;
-            margin: auto;
         }
         .search .header {
             position: fixed;
             top: 0;
             width: 100%;
             height: 45px;
-            background: #ffda44;
+            background: #007FFF;
             z-index: 999;
         }
         .search .cancel {
@@ -156,12 +155,15 @@
         <h1>最近热索<em></em></h1>
         <h2 class="clearfix">
             @if (is_array($keywords = session('search_keyword.')))
+                @php
+                    $keywords = array_unique($keywords);
+                @endphp
                 @foreach($keywords as $keyword)
                     <a href="{{ route('home.search', ['keyword' => $keyword]) }}">{{ $keyword }}</a>
                 @endforeach
             @endif
-            <a href="{{ route('home.search', ['keyword' => '红木家具']) }}">红木家具</a>
-            <a href="{{ route('home.search', ['keyword' => '移动空调']) }}">移动空调</a>
+            <a href="{{ route('home.search', ['keyword' => '白夜行']) }}">白夜行</a>
+            <a href="{{ route('home.search', ['keyword' => '浮生六记']) }}">浮生六记</a>
         </h2>
     </div>
     <div class="mask">
